@@ -1,20 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Card, FaceUpCard, Suit, suitColor} from '../../model/Card';
+import {Card, FaceUpCard, suitColor} from '../../model/Card';
 import {SuitSymbol} from './Suit';
 import {Pips} from './Pips';
 
-export const CardComponent = ({card}: { card: Card }) => (
-    <CardContainer>
+const widthRatio: number = 0.64;
+const heightRatio: number = 0.88;
+const defaultSize: number = 285;
+
+export const CardComponent = ({card, size = defaultSize}: { card: Card, size?: number }) => (
+    <CardContainer size={size}>
         {card.shown ? <CardFront card={card}/> : <CardBack/>}
     </CardContainer>
 );
 
-const CardContainer = styled.div`
-  border-radius: 15px;
+type CardContainerProps = {
+    size: number;
+}
+
+const CardContainer = styled.div<CardContainerProps>`
+  border-radius: 7%;
   border: 3px solid lightgray;
-  width: 12.8rem;
-  height: 17.6rem;
+  width: ${({size}) => size * widthRatio}px;
+  height: ${({size}) => size * heightRatio}px;
+  font-size: ${({size}) => size / defaultSize}rem;
   margin: 2rem;
   background-color: white;
 `;
@@ -45,8 +54,8 @@ const CardPipsContainer = styled.div`
 const CardSuitRankContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   align-items: center;
 `;
 
@@ -74,7 +83,7 @@ const CardFrontContainer = styled.div`
 const CardSuitRank = ({card}: { card: FaceUpCard }) => (
     <CardSuitRankContainer>
         <CardRank color={suitColor(card.suit)}>{card.rank}</CardRank>
-        <SuitSymbol size={'1.5rem'} suit={card.suit}/>
+        <SuitSymbol size={'2em'} suit={card.suit}/>
     </CardSuitRankContainer>
 );
 
@@ -84,9 +93,9 @@ type CardRankProps = {
 
 const CardRank = styled.div<CardRankProps>`
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 2em;
   margin-bottom: 0.3rem;
-  color: ${({color}) => color}
+  color: ${({color}) => color};
 `;
 
 const CardBack = styled.div`

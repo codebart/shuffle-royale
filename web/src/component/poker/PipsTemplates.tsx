@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
+export const Pip = styled.div``;
+
 const PipsContainer = styled.div`
-  height: calc(100% - 5rem);
-  width: 100%;
-  padding: 2.5rem 2.5rem;
+  height: calc(100% - 5em);
+  width: calc(100% - 5em);
+  padding: 2.5em;
 `;
 
 const Pips2 = styled(PipsContainer)`
