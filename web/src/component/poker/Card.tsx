@@ -10,7 +10,7 @@ const defaultSize: number = 285;
 
 export const CardComponent = ({card, size = defaultSize}: { card: Card, size?: number }) => (
     <CardContainer size={size}>
-        {card.shown ? <CardFront card={card}/> : <CardBack/>}
+        {card.shown ? <CardFront card={card}/> : <CardBack size={size}/>}
     </CardContainer>
 );
 
@@ -49,7 +49,7 @@ const CardPipsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const CardSuitRankContainer = styled.div`
   display: flex;
@@ -73,7 +73,7 @@ const CardCornersContainer = styled.div`
     transform: rotate(180deg);
     align-self: end;
   }
-`
+`;
 
 const CardFrontContainer = styled.div`
   height: 100%;
@@ -98,6 +98,10 @@ const CardRank = styled.div<CardRankProps>`
   color: ${({color}) => color};
 `;
 
-const CardBack = styled.div`
-
-`;
+const CardBack = ({size}: { size: number }) => (
+    <svg viewBox="0 0 64 88" height={size * heightRatio} width={size * widthRatio}>
+        <path fill="#FF0000" stroke="none" d="m 5 5 l 0 78 l 54 0 l 0 -78 l -54 0 z"/>
+        <path fill="#FFFFFF" stroke="none" d="m 8 8 l 0 72 l 48 0 l 0 -72 l -48 0 z"/>
+        <path fill="#FF0000" stroke="none" d="m 11 11 l 0 66 l 42 0 l 0 -66 l -42 0 z"/>
+    </svg>
+);
