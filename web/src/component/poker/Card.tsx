@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {Card, FaceUpCard, suitColor} from '../../model/Card';
 import {SuitSymbol} from './Suit';
-import {Pips} from './Pips';
 
 const widthRatio: number = 0.64;
 const heightRatio: number = 0.88;
@@ -23,7 +22,7 @@ const CardContainer = styled.div<CardContainerProps>`
   border: 3px solid lightgray;
   width: ${({size}) => size * widthRatio}px;
   height: ${({size}) => size * heightRatio}px;
-  font-size: ${({size}) => size / defaultSize}rem;
+  font-size: ${({size}) => size / defaultSize * 2.7}em;
   background-color: white;
 `;
 
@@ -31,23 +30,20 @@ const CardFront = ({card}: { card: FaceUpCard }) => (
     <CardFrontContainer>
         <CardCornersContainer>
             <CardSuitRank card={card}/>
-            <CardSuitRank card={card}/>
         </CardCornersContainer>
         <CardPipsContainer>
-            <Pips {...card}/>
+            <SuitSymbol suit={card.suit} size={'4.5em'}/>
         </CardPipsContainer>
     </CardFrontContainer>
 );
 
 const CardPipsContainer = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 1.7em;
+  top: 4.5em;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  width: 100%;
 `;
 
 const CardSuitRankContainer = styled.div`
@@ -60,17 +56,10 @@ const CardSuitRankContainer = styled.div`
 
 const CardCornersContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 100%;
 
-  ${CardSuitRankContainer}:nth-child(1) {
+  ${CardSuitRankContainer}:first-child {
     align-self: start;
-  }
-
-  ${CardSuitRankContainer}:nth-child(2) {
-    transform: rotate(180deg);
-    align-self: end;
   }
 `;
 
@@ -93,8 +82,9 @@ type CardRankProps = {
 const CardRank = styled.div<CardRankProps>`
   font-weight: bold;
   font-size: 2em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2em;
   color: ${({color}) => color};
+  letter-spacing: -2px;
 `;
 
 const CardBack = ({size}: { size: number }) => (

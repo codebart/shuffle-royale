@@ -72,7 +72,7 @@ const CardsContainer = styled.div`
   position: absolute;
   display: flex;
   column-gap: 0.1rem;
-  top: -50px;
+  top: -60px;
   left: 40px;
   
   > div:first-child {

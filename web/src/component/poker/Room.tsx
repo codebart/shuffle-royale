@@ -185,17 +185,17 @@ const table: TableState = {
     cards: [
         {
             suit: 'clubs',
-            rank: 'A',
+            rank: 10,
             shown: true,
         },
         {
             suit: 'diamonds',
-            rank: 'A',
+            rank: 'K',
             shown: true,
         },
         {
             suit: 'hearts',
-            rank: 'A',
+            rank: 7,
             shown: true,
         },
         {
