@@ -15,5 +15,4 @@ export const Rooms = ({rooms}: { rooms: Room[] }) => (
 
 const RoomsContainer = styled.div`
   padding: 2rem;
-  max-width: 65rem;
 `;
