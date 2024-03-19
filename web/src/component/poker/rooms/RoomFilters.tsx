@@ -23,15 +23,24 @@ export const RoomsFilters = () => (
         <ul>
             <li>
                 <label>Blinds:</label>
-                <Select>{blinds.map(([small, big]: [number, number]) => <option>{small}/{big}</option>)}</Select>
+                <Select>
+                    <option>any</option>
+                    {blinds.map(([small, big]: [number, number]) => <option>{small}/{big}</option>)}
+                </Select>
             </li>
             <li>
                 <label>Seats: </label>
-                <Select>{new Array(10).fill(1).map((value, index) => <option>{index + 1}</option>)}</Select>
+                <Select>
+                    <option>any</option>
+                    {new Array(10).fill(1).map((value, index) => <option>{index + 1}</option>)}
+                </Select>
             </li>
             <li>
                 <label>Players:</label>
-                <Select>{new Array(10).fill(1).map((value, index) => <option>{index + 1}</option>)}</Select>
+                <Select>
+                    <option>any</option>
+                    {new Array(10).fill(1).map((value, index) => <option>{index + 1}</option>)}
+                </Select>
             </li>
             <li>
                 <label>Total stacks:</label>
@@ -39,7 +48,7 @@ export const RoomsFilters = () => (
                     <option>&gt;</option>
                     <option>&lt;</option>
                 </SignSelect>
-                <ValueInput type={'text'}/>
+                <ValueInput type={'text'} defaultValue={'any'}/>
             </li>
             <li>
                 <label>Buy in:</label>
@@ -47,10 +56,10 @@ export const RoomsFilters = () => (
                     <option>&gt;</option>
                     <option>&lt;</option>
                 </SignSelect>
-                <ValueInput type={'text'}/>
+                <ValueInput type={'text'} defaultValue={'any'}/>
             </li>
             <li>
-                <Input type={'checkbox'}/> No Limit
+                <Input type={'checkbox'} checked/> No Limit
             </li>
         </ul>
     </RoomsFiltersContainer>
