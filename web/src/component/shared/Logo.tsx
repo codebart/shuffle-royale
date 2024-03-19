@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Logo = () => (
     <LogoContainer>
-        <Red>♥</Red><Black>♣</Black><Red>Shuffle</Red><Black>Royale</Black><Red>♦</Red><Black>♠</Black>
+        <Red>♥</Red><Black>♠</Black><Red>Shuffle</Red><Black>Royale</Black><Red>♦</Red><Black>♣</Black>
     </LogoContainer>
 );
 

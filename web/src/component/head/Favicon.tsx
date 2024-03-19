@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import {suits} from '../../model/Card';
 
 const randomFavicon = (): string => {
-    return `icon/${suits[Math.floor(Math.random() * 4)]}-32.png`;
+    return `/icon/${suits[Math.floor(Math.random() * 4)]}-32.png`;
 };
 
 export const Favicon = () => {

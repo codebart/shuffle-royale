@@ -24,7 +24,6 @@ const CardContainer = styled.div<CardContainerProps>`
   width: ${({size}) => size * widthRatio}px;
   height: ${({size}) => size * heightRatio}px;
   font-size: ${({size}) => size / defaultSize}rem;
-  margin: 2rem;
   background-color: white;
 `;
 

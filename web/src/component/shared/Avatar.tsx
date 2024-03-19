@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 
 export const Avatar = ({url}: {url?: string}) => (
-    <AvatarContainer src={url ?? 'user.svg'}/>
+    <AvatarContainer src={url ?? '/user.svg'}/>
 )
 
 const AvatarContainer = styled.img`
