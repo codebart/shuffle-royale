@@ -22,7 +22,7 @@ export type Player = {
     avatar?: string;
 }
 
-export enum PlayerActionType {
+export enum PlayerAction {
     NONE = 'NONE',
     FOLD = 'FOLD',
     CHECK = 'CHECK',
@@ -43,41 +43,5 @@ export type PlayerSeat = {
     player: Player;
     cards: [Card, Card];
     action: PlayerAction;
-}
-
-export type PlayerAction = None | Fold | Call | Check | Bet | Raise | AllIn;
-
-export interface PlayerActionBase {
-    type: PlayerActionType;
-}
-
-export interface None extends PlayerActionBase {
-    type: PlayerActionType.NONE;
-}
-
-export interface Fold extends PlayerActionBase {
-    type: PlayerActionType.FOLD;
-}
-
-export interface Call extends PlayerActionBase {
-    type: PlayerActionType.CALL;
-}
-
-export interface Check extends PlayerActionBase {
-    type: PlayerActionType.CHECK;
-}
-
-export interface Bet extends PlayerActionBase {
-    type: PlayerActionType.BET;
-    value: number;
-}
-
-export interface Raise extends PlayerActionBase {
-    type: PlayerActionType.RAISE;
-    value: number;
-}
-
-export interface AllIn extends PlayerActionBase {
-    type: PlayerActionType.ALL_IN;
-    value: number;
+    actionValue: number | null;
 }

@@ -25,12 +25,16 @@ const TakeSeat = () => (
     </div>
 );
 
-const PlayerSeatComponent = ({seat: {action, cards: [firstCard, secondCard], occupied, player}}: { seat: PlayerSeat }) => (
+const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, secondCard], occupied, player}}: { seat: PlayerSeat }) => (
     <PlayerSeatBadgeContainer>
         <CardsContainer>
-            <CardComponent size={100} card={firstCard}/>
-            <CardComponent size={100} card={secondCard}/>
+            {firstCard && <CardComponent size={100} card={firstCard}/>}
+            {secondCard && <CardComponent size={100} card={secondCard}/>}
         </CardsContainer>
+        <ActionContainer>
+            {action}
+            {actionValue && <Coins coins={actionValue}/>}
+        </ActionContainer>
         <PlayerSeatContainer>
             <div>
                 <PlayerName>{player.name}</PlayerName>
@@ -40,6 +44,23 @@ const PlayerSeatComponent = ({seat: {action, cards: [firstCard, secondCard], occ
         </PlayerSeatContainer>
     </PlayerSeatBadgeContainer>
 );
+
+const ActionContainer = styled.div`
+  background-color: #0f427c;
+  border-radius: 25px;
+  border: 2px solid #082546;
+  color: white;
+  position: absolute;
+  width: 8.3rem;
+  padding: 2.5rem 1rem 0.5rem 1rem;
+  top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  flex-wrap: wrap;
+`
 
 const PlayerSeatBadgeContainer = styled.div`
   position: relative;

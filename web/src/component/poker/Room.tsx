@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table} from './Table';
 import styled from 'styled-components';
-import {PlayerActionType, Stage, TableState} from '../../model/Table';
+import {PlayerAction, Stage, TableState} from '../../model/Table';
 import {CardComponent} from './Card';
 import {SeatComponent} from './Seat';
 import {Betting} from './Betting';
@@ -113,7 +113,8 @@ const table: TableState = {
                     rank: 2,
                     shown: true,
                 }],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.ALL_IN,
+            actionValue: 23524,
         },
         {
             occupied: true,
@@ -122,7 +123,8 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.CHECK,
+            actionValue: null,
         },
         {
             occupied: true,
@@ -131,7 +133,8 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.BET,
+            actionValue: 6363,
         },
 
         {
@@ -141,7 +144,8 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.FOLD,
+            actionValue: null,
         },
         {
             occupied: true,
@@ -150,7 +154,8 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.CALL,
+            actionValue: 23524,
         },
         {
             occupied: true,
@@ -159,7 +164,8 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.RAISE,
+            actionValue: 44444,
         },
         {
             occupied: true,
@@ -168,7 +174,8 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.ALL_IN,
+            actionValue: 23524,
         },
         {
             occupied: true,
@@ -177,7 +184,8 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: {type: PlayerActionType.NONE},
+            action: PlayerAction.ALL_IN,
+            actionValue: 23524,
         },
     ],
     seatsCount: 3,
