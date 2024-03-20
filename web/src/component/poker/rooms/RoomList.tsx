@@ -25,7 +25,7 @@ const RoomUnorderedList = styled.ul`
   margin: 0;
   padding: 0;
 
-  li:last-child {
+  > li:last-child {
     border-bottom: 2px solid lightgray;
   }
 

@@ -2,20 +2,7 @@ import {Select} from '../../ui/Select';
 import {Input} from '../../ui/Input';
 import styled from 'styled-components';
 import React from 'react';
-
-const blinds: [number, number][] = [
-    [1, 2],
-    [2, 4],
-    [5, 10],
-    [10, 20],
-    [25, 50],
-    [100, 200],
-    [250, 500],
-    [500, 1000],
-    [1000, 2500],
-    [2500, 5000],
-    [5000, 10000],
-];
+import {blinds} from '../../../model/Room';
 
 export const RoomsFilters = () => (
     <RoomsFiltersContainer>
@@ -32,14 +19,14 @@ export const RoomsFilters = () => (
                 <label>Seats: </label>
                 <Select>
                     <option>any</option>
-                    {new Array(10).fill(1).map((value, index) => <option>{index + 1}</option>)}
+                    {new Array(9).fill(1).map((value, index) => <option>{index + 2}</option>)}
                 </Select>
             </li>
             <li>
                 <label>Players:</label>
                 <Select>
                     <option>any</option>
-                    {new Array(10).fill(1).map((value, index) => <option>{index + 1}</option>)}
+                    {new Array(9).fill(1).map((value, index) => <option>{index + 2}</option>)}
                 </Select>
             </li>
             <li>
