@@ -3,7 +3,7 @@ import {Route, Routes} from 'react-router-dom';
 import {ErrorPage} from './ErrorPage';
 import {Layout} from '../shared/Layout';
 import {Logo} from '../shared/Logo';
-import {User} from '../poker/User';
+import {Account} from '../poker/Account';
 import {Rooms} from '../poker/rooms/Rooms';
 import {Room} from '../poker/Room';
 
@@ -19,7 +19,7 @@ export const Routing = () => (
 const RoomsRoute = () => (
     <Layout>
         <Logo/>
-        <User/>
+        <Account/>
         <Rooms/>
     </Layout>
 )
@@ -27,7 +27,7 @@ const RoomsRoute = () => (
 const RoomRoute = () => (
     <Layout>
         <Logo/>
-        <User/>
+        <Account/>
         <Room/>
     </Layout>
 )

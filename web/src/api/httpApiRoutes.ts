@@ -1,8 +1,8 @@
-type EnvironmentType = 'local' | 'production';
+type EnvironmentType = 'development' | 'production';
 
 const environmentRootUrl: Record<EnvironmentType, string> = {
-    local: 'http://localhost:9090/api',
+    development: 'http://localhost:9090/api',
     production: 'http://api.shuffleroyale.com'
 }
 
-export const rootUrl: string = environmentRootUrl[(process.env.NODE_ENV || 'local') as EnvironmentType];
+export const rootUrl: string = environmentRootUrl[(process.env.NODE_ENV || 'development') as EnvironmentType];

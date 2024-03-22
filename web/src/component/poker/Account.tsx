@@ -1,16 +1,23 @@
 import {Avatar} from '../shared/Avatar';
 import styled from 'styled-components';
 import {Coins} from '../shared/Coins';
+import {useAccountInfo} from '../../api/endpoint/accountInfo.get';
 
-export const User = () => (
-    <UserContainer>
-        <Avatar/>
-        <div>
-            <Name>Anonymous</Name>
-            <Coins coins={4000} locked={2000}/>
-        </div>
-    </UserContainer>
-);
+export const Account = () => {
+    const account = useAccountInfo();
+    if (!account.isSuccess || !account.data) {
+        return null;
+    }
+    return (
+        <UserContainer>
+            <Avatar/>
+            <div>
+                <Name>{account.data.name}</Name>
+                <Coins coins={account.data.freeCoins} locked={account.data.lockedCoins}/>
+            </div>
+        </UserContainer>
+    );
+};
 
 const UserContainer = styled.div`
   position: absolute;
