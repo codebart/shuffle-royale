@@ -14,7 +14,7 @@ export const RoomList = ({rooms}: { rooms: RoomModel[] }) => {
             <RoomUnorderedList>
                 {rooms.map(room => <RoomView key={room.id} room={room}/>)}
                 <CreateRoom/>
-                <RoomPagination/>
+                <RoomPagination totalElements={1}/>
             </RoomUnorderedList>
         </RoomListContainer>
     );

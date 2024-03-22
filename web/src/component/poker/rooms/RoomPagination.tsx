@@ -23,11 +23,13 @@ const initialForm: PaginationForm = {
     currentPage: 1
 };
 
-export const RoomPagination = () => {
+export const RoomPagination = ({totalElements}: {totalElements: number}) => {
     const {t} = useTranslation();
-    const {register, handleSubmit} = useForm<PaginationForm>({
+    const {register, handleSubmit, watch} = useForm<PaginationForm>({
         defaultValues: initialForm
     });
+    const from = (watch('currentPage') - 1) * watch('rowsPerPage') + 1;
+    const to = Math.min(totalElements, Math.max(from, watch('currentPage') * watch('rowsPerPage')));
     return (
         <li>
             <RoomPaginationContainer>
@@ -35,7 +37,7 @@ export const RoomPagination = () => {
                 <Select {...register('rowsPerPage')}>
                     {paginationOptions.map((value) => <option key={value} value={value}>{value}</option>)}
                 </Select>
-                <span>1-10 {t('rooms.list.pagination.of')} 35 {t('rooms.list.pagination.rooms')}</span>
+                <span>{from}-{to} {t('rooms.list.pagination.of')} {totalElements} {t('rooms.list.pagination.rooms')}</span>
                 <Button>&lt;</Button>
                 <Button>&gt;</Button>
             </RoomPaginationContainer>
