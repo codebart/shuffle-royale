@@ -6,6 +6,7 @@ import {blinds} from '../../../../model/Room';
 import {Input} from '../../../ui/Input';
 import {useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
+import {useCreateRoom} from '../../../../api/endpoint/createRoom.post';
 
 type CreateRoomForm = {
     blinds: string;
@@ -23,13 +24,16 @@ const initialForm: CreateRoomForm = {
 
 export const CreateRoomForm = ({onCreated}: {onCreated: () => void}) => {
     const {t} = useTranslation();
-    const {register, handleSubmit} = useForm<CreateRoomForm>({
+    const {register, handleSubmit, watch} = useForm<CreateRoomForm>({
         defaultValues: initialForm
     });
-    const onSubmit = useCallback(() => {
-
-        onCreated();
-    }, []);
+    const createRoomQuery = useCreateRoom(watch());
+    const onSubmit = useCallback(async () => {
+        const {data, error} = await createRoomQuery.refetch();
+        if (data) {
+            onCreated();
+        }
+    }, [createRoomQuery, onCreated]);
     return (
         <RoomCreatorContainer onSubmit={handleSubmit(onSubmit)}>
             <ul>
