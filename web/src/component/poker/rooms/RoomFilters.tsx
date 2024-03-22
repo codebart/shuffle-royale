@@ -3,8 +3,9 @@ import {Input} from '../../ui/Input';
 import styled from 'styled-components';
 import React from 'react';
 import {blinds} from '../../../model/Room';
+import {useTranslation} from 'react-i18next';
 
-type RoomsFiltersParameters = {
+type RoomsFiltersForm = {
     blinds: string | 'any';
     seats: number | 'any';
     players: number | 'any';
@@ -15,53 +16,56 @@ type RoomsFiltersParameters = {
     noLimit: boolean;
 }
 
-export const RoomsFilters = () => (
-    <RoomsFiltersContainer>
-        <h3>Filters</h3>
-        <ul>
-            <li>
-                <label>Blinds:</label>
-                <Select>
-                    <option>any</option>
-                    {blinds.map(([small, big]: [number, number]) => <option key={`${small}/${big}`}>{small}/{big}</option>)}
-                </Select>
-            </li>
-            <li>
-                <label>Seats: </label>
-                <Select>
-                    <option>any</option>
-                    {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
-                </Select>
-            </li>
-            <li>
-                <label>Players:</label>
-                <Select>
-                    <option>any</option>
-                    {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
-                </Select>
-            </li>
-            <li>
-                <label>Total stacks:</label>
-                <SignSelect>
-                    <option>&gt;</option>
-                    <option>&lt;</option>
-                </SignSelect>
-                <ValueInput type={'text'} defaultValue={'any'}/>
-            </li>
-            <li>
-                <label>Buy in:</label>
-                <SignSelect>
-                    <option>&gt;</option>
-                    <option>&lt;</option>
-                </SignSelect>
-                <ValueInput type={'text'} defaultValue={'any'}/>
-            </li>
-            <li>
-                <Input type={'checkbox'} checked/> No Limit
-            </li>
-        </ul>
-    </RoomsFiltersContainer>
-);
+export const RoomsFilters = () => {
+    const {t} = useTranslation();
+    return (
+        <RoomsFiltersContainer>
+            <h3>{t('rooms.filters.header')}</h3>
+            <ul>
+                <li>
+                    <label>{t('rooms.filters.blinds')}:</label>
+                    <Select>
+                        <option>{t('rooms.filters.any')}</option>
+                        {blinds.map(([small, big]: [number, number]) => <option key={`${small}/${big}`}>{small}/{big}</option>)}
+                    </Select>
+                </li>
+                <li>
+                    <label>{t('rooms.filters.seats')}: </label>
+                    <Select>
+                        <option>{t('rooms.filters.any')}</option>
+                        {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
+                    </Select>
+                </li>
+                <li>
+                    <label>{t('rooms.filters.players')}:</label>
+                    <Select>
+                        <option>{t('rooms.filters.any')}</option>
+                        {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
+                    </Select>
+                </li>
+                <li>
+                    <label>{t('rooms.filters.totalStacks')}:</label>
+                    <SignSelect>
+                        <option>&gt;</option>
+                        <option>&lt;</option>
+                    </SignSelect>
+                    <ValueInput type={'text'} defaultValue={t('rooms.filters.any')}/>
+                </li>
+                <li>
+                    <label>{t('rooms.filters.buyIn')}:</label>
+                    <SignSelect>
+                        <option>&gt;</option>
+                        <option>&lt;</option>
+                    </SignSelect>
+                    <ValueInput type={'text'} defaultValue={t('rooms.filters.any')}/>
+                </li>
+                <li>
+                    <Input type={'checkbox'} checked/> {t('rooms.filters.noLimit')}
+                </li>
+            </ul>
+        </RoomsFiltersContainer>
+    );
+};
 
 const SignSelect = styled(Select)`
   width: 3rem;

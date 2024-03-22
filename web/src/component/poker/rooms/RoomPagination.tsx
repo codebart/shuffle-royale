@@ -2,6 +2,8 @@ import {Select} from '../../ui/Select';
 import {Button} from '../../ui/Button';
 import styled from 'styled-components';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {useForm} from 'react-hook-form';
 
 const paginationOptions: number[] = [
     10,
@@ -9,21 +11,39 @@ const paginationOptions: number[] = [
     50,
     100,
     500
-]
+];
 
-export const RoomPagination = () => (
-    <RoomPaginationContainer>
-        <span>Rows per page:</span>
-        <Select>
-            {paginationOptions.map((value) => <option key={value} value={value}>{value}</option>)}
-        </Select>
-        <span>1-10 of 35 rooms</span>
-        <Button>&lt;</Button>
-        <Button>&gt;</Button>
-    </RoomPaginationContainer>
-)
+type PaginationForm = {
+    rowsPerPage: number,
+    currentPage: number
+}
 
-const RoomPaginationContainer = styled.li`
+const initialForm: PaginationForm = {
+    rowsPerPage: 10,
+    currentPage: 1
+};
+
+export const RoomPagination = () => {
+    const {t} = useTranslation();
+    const {register, handleSubmit} = useForm<PaginationForm>({
+        defaultValues: initialForm
+    });
+    return (
+        <li>
+            <RoomPaginationContainer>
+                <span>{t('rooms.list.pagination.rowsPerPage')}:</span>
+                <Select {...register('rowsPerPage')}>
+                    {paginationOptions.map((value) => <option key={value} value={value}>{value}</option>)}
+                </Select>
+                <span>1-10 {t('rooms.list.pagination.of')} 35 {t('rooms.list.pagination.rooms')}</span>
+                <Button>&lt;</Button>
+                <Button>&gt;</Button>
+            </RoomPaginationContainer>
+        </li>
+    );
+};
+
+const RoomPaginationContainer = styled.form`
   display: flex;
   border: 2px solid lightgray;
   border-bottom: none;
@@ -31,15 +51,15 @@ const RoomPaginationContainer = styled.li`
   align-items: center;
   column-gap: 0.5rem;
   justify-content: center;
-  
+
   span:first-child {
     font-size: 0.8rem;
   }
-  
+
   button {
     width: 3rem;
     flex-grow: 0;
     font-weight: bold;
     color: #666666;
   }
-`
+`;

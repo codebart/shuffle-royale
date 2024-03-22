@@ -1,9 +1,11 @@
 import {Select} from '../../ui/Select';
-import {Button} from '../../ui/Button';
 import styled from 'styled-components';
-import React from 'react';
+import React, {useCallback} from 'react';
+import {useTranslation} from 'react-i18next';
+import {useForm} from 'react-hook-form';
+import {Input} from '../../ui/Input';
 
-enum SortBy {
+enum SortKey {
     BLINDS = 'BLINDS',
     SEATS = 'SEATS',
     PLAYERS = 'PLAYERS',
@@ -17,23 +19,37 @@ enum SortDirection {
     DESC = 'DESC'
 }
 
-export const RoomsSort = () => (
-    <RoomsSortContainer>
-        <h3>Sort</h3>
-        <label htmlFor={'sort'}>Sort by:</label>
-        <Select name={'sort'} id={'sort'}>
-            <option value={SortBy.BLINDS}>Blinds</option>
-            <option value={SortBy.SEATS}>Seats</option>
-            <option value={SortBy.PLAYERS}>Players</option>
-            <option value={SortBy.TOTAL_STACKS}>Total stacks</option>
-            <option value={SortBy.BUY_IN}>Buy in</option>
-            <option value={SortBy.ID}>Id</option>
-        </Select>
-        <Button>ASC</Button>
-    </RoomsSortContainer>
-);
+type SortForm = {
+    key: SortKey,
+    direction: SortDirection
+}
 
-const RoomsSortContainer = styled.div`
+const initialForm: SortForm = {
+    key: SortKey.BLINDS,
+    direction: SortDirection.ASC
+}
+
+export const RoomsSort = () => {
+    const {t} = useTranslation();
+    const {register, setValue, getValues} = useForm<SortForm>({
+        defaultValues: initialForm
+    });
+    const onDirectionClicked = useCallback(() => {
+        setValue('direction', getValues('direction') === SortDirection.ASC ? SortDirection.DESC : SortDirection.ASC);
+    }, []);
+    return (
+        <RoomsSortContainer>
+            <h3>{t('rooms.sort.header')}</h3>
+            <label htmlFor={'sort'}>{t('rooms.sort.sortBy')}:</label>
+            <Select {...register('key')} id={'sort'}>
+                {Object.keys(SortKey).map(key => <option key={key} value={key}>{t(`rooms.sort.key.${key}`)}</option>)}
+            </Select>
+            <Input onClick={onDirectionClicked} {...register('direction')} type={'button'}/>
+        </RoomsSortContainer>
+    );
+};
+
+const RoomsSortContainer = styled.form`
   label {
     display: block;
     margin-bottom: 0.2rem;

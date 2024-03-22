@@ -4,17 +4,21 @@ import styled from 'styled-components';
 import {Button} from '../../ui/Button';
 import React from 'react';
 import {CreateRoom} from './create/CreateRoom';
+import {useTranslation} from 'react-i18next';
 
-export const RoomList = ({rooms}: { rooms: Room[] }) => (
-    <RoomListContainer>
-        <h3>Rooms</h3>
-        <RoomUnorderedList>
-            {rooms.map(room => <RoomView key={room.id} room={room}/>)}
-            <CreateRoom/>
-            <RoomPagination/>
-        </RoomUnorderedList>
-    </RoomListContainer>
-);
+export const RoomList = ({rooms}: { rooms: Room[] }) => {
+    const {t} = useTranslation();
+    return (
+        <RoomListContainer>
+            <h3>{t('rooms.list.header')}</h3>
+            <RoomUnorderedList>
+                {rooms.map(room => <RoomView key={room.id} room={room}/>)}
+                <CreateRoom/>
+                <RoomPagination/>
+            </RoomUnorderedList>
+        </RoomListContainer>
+    );
+};
 
 const RoomListContainer = styled.div`
   border-top: 2px solid lightgray;
@@ -24,12 +28,16 @@ const RoomListContainer = styled.div`
 const RoomUnorderedList = styled.ul`
   margin: 0;
   padding: 0;
+  
+  li {
+    list-style: none;
+  }
 
   > li:last-child {
     border-bottom: 2px solid lightgray;
   }
 
-  li:nth-child(odd) {
+  > li:nth-child(odd) {
     background-color: #DDDDDD;
   }
 `;

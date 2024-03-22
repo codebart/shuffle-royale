@@ -2,13 +2,15 @@ import {Button} from '../../../ui/Button';
 import styled from 'styled-components';
 import React, {useCallback, useState} from 'react';
 import {CreateRoomForm} from './CreateRoomForm';
+import {useTranslation} from 'react-i18next';
 
 export const CreateRoom = () => {
+    const {t} = useTranslation();
     const [creating, setCreating] = useState(false);
     const changeCreating =  useCallback((value: boolean) => () => setCreating(value), [setCreating]);
     return (
         <CreateRoomContainer>
-            {!creating && <Button onClick={changeCreating(true)}>Create</Button>}
+            {!creating && <Button onClick={changeCreating(true)}>{t('room.create.create')}</Button>}
             {creating && <CreateRoomForm onCreated={changeCreating(false)}/>}
         </CreateRoomContainer>
     );

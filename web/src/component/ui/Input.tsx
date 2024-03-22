@@ -12,4 +12,12 @@ export const Input = styled.input`
     height: 18px;
     cursor: pointer;
   }
+  
+  &[type="button"] {
+    cursor: pointer;
+    &:hover {
+      background-color: #CCCCCC;
+      border-color: #BBBBBB;
+    }
+  }
 `;

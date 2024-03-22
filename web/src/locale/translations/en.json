@@ -1,5 +1,46 @@
 {
   "translation": {
-
+    "room": {
+      "create": {
+        "create": "Create",
+        "start": "Start",
+        "blinds": "Blinds",
+        "seats": "Seats",
+        "buyIn": "Buy in (big blinds)",
+        "noLimit": "No Limit"
+      }
+    },
+    "rooms": {
+      "list": {
+        "header": "Rooms",
+        "pagination": {
+          "rowsPerPage": "Rows per page",
+          "of": "of",
+          "rooms": "rooms"
+        }
+      },
+      "filters": {
+        "header": "Filters",
+        "blinds": "Blinds",
+        "seats": "Seats",
+        "buyIn": "Buy in",
+        "noLimit": "No Limit",
+        "players": "Players",
+        "totalStacks": "Total stacks",
+        "any": "Any"
+      },
+      "sort": {
+        "header": "Sort",
+        "sortBy": "Sort by",
+        "key": {
+          "BLINDS":  "Blinds",
+          "SEATS": "Seats",
+          "PLAYERS":  "Players",
+          "TOTAL_STACKS": "Total stacks",
+          "BUY_IN":  "Buy in",
+          "ID": "Id"
+        }
+      }
+    }
   }
 }

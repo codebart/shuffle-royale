@@ -5,13 +5,7 @@ import {Select} from '../../../ui/Select';
 import {blinds} from '../../../../model/Room';
 import {Input} from '../../../ui/Input';
 import {useForm} from 'react-hook-form';
-
-const initialForm: CreateRoomForm = {
-    blinds: '1/2',
-    buyIn: 20,
-    noLimit: true,
-    seats: 10
-};
+import {useTranslation} from 'react-i18next';
 
 type CreateRoomForm = {
     blinds: string;
@@ -20,7 +14,15 @@ type CreateRoomForm = {
     noLimit: boolean;
 }
 
+const initialForm: CreateRoomForm = {
+    blinds: '1/2',
+    buyIn: 20,
+    noLimit: true,
+    seats: 10
+};
+
 export const CreateRoomForm = ({onCreated}: {onCreated: () => void}) => {
+    const {t} = useTranslation();
     const {register, handleSubmit} = useForm<CreateRoomForm>({
         defaultValues: initialForm
     });
@@ -29,30 +31,29 @@ export const CreateRoomForm = ({onCreated}: {onCreated: () => void}) => {
         onCreated();
     }, []);
     return (
-        <RoomCreatorContainer onSubmit={onSubmit}>
+        <RoomCreatorContainer onSubmit={handleSubmit(onSubmit)}>
             <ul>
                 <li>
-                    <label>Blinds:</label>
+                    <label>{t('room.create.blinds')}:</label>
                     <Select {...register('blinds')}>
-                        {blinds.map(([small, big]: [number, number]) => <option
-                            key={`${small}/${big}`}>{small}/{big}</option>)}
+                        {blinds.map(([small, big]: [number, number]) => <option key={`${small}/${big}`}>{small}/{big}</option>)}
                     </Select>
                 </li>
                 <li>
-                    <label>Seats: </label>
+                    <label>{t('room.create.seats')}: </label>
                     <Select {...register('seats')}>
                         {new Array(9).fill(1).map((value, index) => <option key={10 - index}>{10 - index}</option>)}
                     </Select>
                 </li>
                 <li>
-                    <label>Buy in (big blinds):</label>
+                    <label>{t('room.create.buyIn')}:</label>
                     <BuyInInput {...register('buyIn')} type={'number'} defaultValue={20}/>
                 </li>
                 <li>
-                    <Input {...register('noLimit')} type={'checkbox'} checked/> No Limit
+                    <Input {...register('noLimit')} type={'checkbox'} checked/> {t('room.create.noLimit')}
                 </li>
             </ul>
-            <Button type={'submit'}>Start</Button>
+            <Button type={'submit'}>{t('room.create.start')}</Button>
         </RoomCreatorContainer>
     );
 };
