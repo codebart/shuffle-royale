@@ -1,6 +1,6 @@
 import {Link} from 'react-head';
 import React, {useMemo} from 'react';
-import {suits} from '../../model/Card';
+import {suits} from '../../model/card.model';
 
 const randomFavicon = (): string => {
     return `/icon/${suits[Math.floor(Math.random() * 4)]}-32.png`;

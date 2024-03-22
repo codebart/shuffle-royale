@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Card, FaceUpCard, suitColor} from '../../model/Card';
+import {CardModel, FaceUpCard, suitColor} from '../../model/card.model';
 import {SuitSymbol} from './Suit';
 
 const widthRatio: number = 0.64;
 const heightRatio: number = 0.88;
 const defaultSize: number = 285;
 
-export const CardComponent = ({card, size = defaultSize}: { card: Card, size?: number }) => (
+export const CardComponent = ({card, size = defaultSize}: { card: CardModel, size?: number }) => (
     <CardContainer size={size}>
         {card.shown ? <CardFront card={card}/> : <CardBack size={size}/>}
     </CardContainer>

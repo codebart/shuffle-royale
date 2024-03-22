@@ -2,7 +2,7 @@ import {Button} from '../../../ui/Button';
 import styled from 'styled-components';
 import React, {useCallback} from 'react';
 import {Select} from '../../../ui/Select';
-import {blinds} from '../../../../model/Room';
+import {blinds} from '../../../../model/room.model';
 import {Input} from '../../../ui/Input';
 import {useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
@@ -54,7 +54,7 @@ export const CreateRoomForm = ({onCreated}: {onCreated: () => void}) => {
                     <BuyInInput {...register('buyIn')} type={'number'} defaultValue={20}/>
                 </li>
                 <li>
-                    <Input {...register('noLimit')} type={'checkbox'} checked/> {t('room.create.noLimit')}
+                    <Input {...register('noLimit')} type={'checkbox'}/> {t('room.create.noLimit')}
                 </li>
             </ul>
             <Button type={'submit'}>{t('room.create.start')}</Button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Avatar} from '../shared/Avatar';
-import {PlayerSeat, Seat} from '../../model/Table';
+import {PlayerSeat, Seat} from '../../model/table.model';
 import {Coins} from '../shared/Coins';
 import {CardComponent} from './Card';
 

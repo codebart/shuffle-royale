@@ -1,4 +1,4 @@
-export type Room = {
+export type RoomModel = {
     id: number;
     smallBlind: number;
     bigBlind: number;

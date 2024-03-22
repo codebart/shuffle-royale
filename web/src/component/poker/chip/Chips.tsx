@@ -1,4 +1,4 @@
-import {ChipValue} from '../../../model/Chip';
+import {ChipValue} from '../../../model/chip.model';
 import styled from 'styled-components';
 import React from 'react';
 import {ChipsStack} from './ChipsStack';

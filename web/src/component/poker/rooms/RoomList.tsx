@@ -1,4 +1,4 @@
-import {Room} from '../../../model/Room';
+import {RoomModel} from '../../../model/room.model';
 import {RoomPagination} from './RoomPagination';
 import styled from 'styled-components';
 import {Button} from '../../ui/Button';
@@ -6,7 +6,7 @@ import React from 'react';
 import {CreateRoom} from './create/CreateRoom';
 import {useTranslation} from 'react-i18next';
 
-export const RoomList = ({rooms}: { rooms: Room[] }) => {
+export const RoomList = ({rooms}: { rooms: RoomModel[] }) => {
     const {t} = useTranslation();
     return (
         <RoomListContainer>
@@ -42,7 +42,7 @@ const RoomUnorderedList = styled.ul`
   }
 `;
 
-const RoomView = ({room}: { room: Room }) => (
+const RoomView = ({room}: { room: RoomModel }) => (
     <RoomViewContainer>
         <RoomId>#{room.id}</RoomId>
         <div><b>Blinds:</b> {room.smallBlind}/{room.bigBlind}</div>

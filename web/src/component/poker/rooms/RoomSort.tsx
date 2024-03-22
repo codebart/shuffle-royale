@@ -4,39 +4,20 @@ import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useForm} from 'react-hook-form';
 import {Input} from '../../ui/Input';
+import {initialSortForm, SortDirection, SortForm, SortKey} from '../../../model/rooms.model';
 
-enum SortKey {
-    BLINDS = 'BLINDS',
-    SEATS = 'SEATS',
-    PLAYERS = 'PLAYERS',
-    TOTAL_STACKS = 'TOTAL_STACKS',
-    BUY_IN = 'BUY_IN',
-    ID = 'ID'
-}
-
-enum SortDirection {
-    ASC = 'ASC',
-    DESC = 'DESC'
-}
-
-type SortForm = {
-    key: SortKey,
-    direction: SortDirection
-}
-
-const initialForm: SortForm = {
-    key: SortKey.BLINDS,
-    direction: SortDirection.ASC
-}
-
-export const RoomsSort = () => {
+export const RoomsSort = ({onChange}: {onChange: (form: SortForm) => void}) => {
     const {t} = useTranslation();
-    const {register, setValue, getValues} = useForm<SortForm>({
-        defaultValues: initialForm
+    const {register, setValue, getValues, watch} = useForm<SortForm>({
+        defaultValues: initialSortForm
     });
     const onDirectionClicked = useCallback(() => {
         setValue('direction', getValues('direction') === SortDirection.ASC ? SortDirection.DESC : SortDirection.ASC);
     }, []);
+    React.useEffect(() => {
+        const subscription = watch((value) => onChange(value as SortForm))
+        return () => subscription.unsubscribe()
+    }, [watch])
     return (
         <RoomsSortContainer>
             <h3>{t('rooms.sort.header')}</h3>

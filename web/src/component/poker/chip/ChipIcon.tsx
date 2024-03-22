@@ -1,4 +1,4 @@
-import {ChipValue} from '../../../model/Chip';
+import {ChipValue} from '../../../model/chip.model';
 import React from 'react';
 
 const chipColors = {

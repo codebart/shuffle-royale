@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table} from './Table';
 import styled from 'styled-components';
-import {PlayerAction, Stage, TableState} from '../../model/Table';
+import {PlayerAction, Stage, TableState} from '../../model/table.model';
 import {CardComponent} from './Card';
 import {SeatComponent} from './Seat';
 import {Betting} from './Betting';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {ChipValue} from '../../../model/Chip';
+import {ChipValue} from '../../../model/chip.model';
 import {ChipIcon} from './ChipIcon';
 
 export const Chip = ({value}: { value: ChipValue }) => (

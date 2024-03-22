@@ -1,4 +1,4 @@
-import {Suit, suitColor, suitSymbol} from '../../model/Card';
+import {Suit, suitColor, suitSymbol} from '../../model/card.model';
 import styled from 'styled-components';
 import React from 'react';
 
