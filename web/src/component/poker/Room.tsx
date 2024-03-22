@@ -5,6 +5,8 @@ import {PlayerAction, Stage, TableState} from '../../model/Table';
 import {CardComponent} from './Card';
 import {SeatComponent} from './Seat';
 import {Betting} from './Betting';
+import {DealerButton} from './DealerButton';
+import {Chips} from './chip/Chips';
 
 type SeatAlign = 'start' | 'end' | 'center';
 
@@ -251,6 +253,11 @@ const TableLayout = () => {
     return (
         <TableContainer>
             <Table/>
+            <div style={{position: 'absolute', left: 370, top: 100}}>
+                <Chips value={21350}/>
+            </div>
+
+            <DealerButton/>
             <SharedCards>
                 {table.cards.map(card => <CardComponent size={120} card={card}/>)}
             </SharedCards>

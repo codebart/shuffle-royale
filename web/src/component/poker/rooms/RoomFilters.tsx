@@ -4,6 +4,17 @@ import styled from 'styled-components';
 import React from 'react';
 import {blinds} from '../../../model/Room';
 
+type RoomsFiltersParameters = {
+    blinds: string | 'any';
+    seats: number | 'any';
+    players: number | 'any';
+    totalStacks: number | 'any';
+    totalStackOperator: '>' | '<';
+    buyIn: number | 'any';
+    buyInOperator: '>' | '<';
+    noLimit: boolean;
+}
+
 export const RoomsFilters = () => (
     <RoomsFiltersContainer>
         <h3>Filters</h3>
@@ -12,21 +23,21 @@ export const RoomsFilters = () => (
                 <label>Blinds:</label>
                 <Select>
                     <option>any</option>
-                    {blinds.map(([small, big]: [number, number]) => <option>{small}/{big}</option>)}
+                    {blinds.map(([small, big]: [number, number]) => <option key={`${small}/${big}`}>{small}/{big}</option>)}
                 </Select>
             </li>
             <li>
                 <label>Seats: </label>
                 <Select>
                     <option>any</option>
-                    {new Array(9).fill(1).map((value, index) => <option>{index + 2}</option>)}
+                    {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
                 </Select>
             </li>
             <li>
                 <label>Players:</label>
                 <Select>
                     <option>any</option>
-                    {new Array(9).fill(1).map((value, index) => <option>{index + 2}</option>)}
+                    {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
                 </Select>
             </li>
             <li>

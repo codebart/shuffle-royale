@@ -3,7 +3,7 @@ import {RoomPagination} from './RoomPagination';
 import styled from 'styled-components';
 import {Button} from '../../ui/Button';
 import React from 'react';
-import {CreateRoom} from './CreateRoom';
+import {CreateRoom} from './create/CreateRoom';
 
 export const RoomList = ({rooms}: { rooms: Room[] }) => (
     <RoomListContainer>
