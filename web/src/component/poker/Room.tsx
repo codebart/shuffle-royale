@@ -1,12 +1,14 @@
 import React from 'react';
 import {Table} from './Table';
 import styled from 'styled-components';
-import {PlayerAction, Stage, TableState} from 'model/table.model';
+import {Stage, TableState} from 'model/table.model';
 import {CardComponent} from './card/Card';
 import {SeatComponent} from './seat/Seat';
 import {Betting} from './Betting';
 import {useTranslation} from 'react-i18next';
 import {AutoBet} from './AutoBet';
+import {PlayerAction} from '../../model/betting.model';
+import {BlackRedLogo, Logo} from '../shared/Logo';
 
 type SeatAlign = 'start' | 'end' | 'center';
 
@@ -100,92 +102,34 @@ const table: TableState = {
     button: 0,
     seats: [
         {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [        {
-                suit: 'spades',
-                rank: 'A',
-                shown: true,
-            },
-                {
-                    suit: 'hearts',
-                    rank: 2,
-                    shown: true,
-                }],
-            action: PlayerAction.ALL_IN,
-            actionValue: 23524,
-        },
-        {
-            occupied: false
-
-        },
-        {
-            occupied: false
-
-        },
-
-        {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.FOLD,
-            actionValue: null,
-        },
-        {
             occupied: false
         },
         {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.NONE,
-            actionValue: 44444,
+            occupied: false
         },
         {
             occupied: false
         },
         {
             occupied: false
-
+        },
+        {
+            occupied: false
+        },
+        {
+            occupied: false
+        },
+        {
+            occupied: false
+        },
+        {
+            occupied: false
         },
     ],
     seatsCount: 3,
     stage: Stage.WAITING,
     cards: [
-        {
-            suit: 'clubs',
-            rank: 10,
-            shown: true,
-        },
-        {
-            suit: 'diamonds',
-            rank: 'K',
-            shown: true,
-        },
-        {
-            suit: 'hearts',
-            rank: 7,
-            shown: true,
-        },
-        {
-            suit: 'spades',
-            rank: 'A',
-            shown: true,
-        },
-        {
-            suit: 'hearts',
-            rank: 2,
-            shown: true,
-        }
+
     ]
 }
 
@@ -195,8 +139,12 @@ export const Room = () => {
         <RoomContainer>
             <RoomId>{t('room.header')} #1234</RoomId>
             <TableLayout/>
-            <AutoBet/>
-            <Betting/>
+            {/*<AutoBet/>*/}
+            {/*<Betting actions={[*/}
+            {/*    {action: PlayerAction.CHECK},*/}
+            {/*    {action: PlayerAction.FOLD},*/}
+            {/*    {action: PlayerAction.BET, min: 1000, max: 10000},*/}
+            {/*]} pot={444}/>*/}
         </RoomContainer>
     );
 };
@@ -210,9 +158,10 @@ const RoomContainer = styled.div`
   gap: 6rem;
 `;
 
-const RoomId = styled.div`
+const RoomId = styled.h1`
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-bottom: 3rem;
 `;
 
 const TableLayout = () => {
@@ -220,6 +169,9 @@ const TableLayout = () => {
     return (
         <TableContainer>
             <Table/>
+            <LogoContainer>
+                <BlackRedLogo/>
+            </LogoContainer>
             <SharedCards>
                 {table.cards.map((card, index) => <CardComponent key={index} size={120} card={card}/>)}
             </SharedCards>
@@ -263,4 +215,21 @@ const SeatLocation = styled.div<SeatLocationProps>`
   grid-row: ${({position}) => position.row};
   align-self: ${({position}) => position.align};
   justify-self: ${({position}) => position.justify};
+`
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: min(1vw, 0.9rem);
+  
+  div {
+    border: none;
+  }
 `

@@ -17,9 +17,25 @@ const LogoContainer = styled.div`
 `;
 
 const Red = styled.span`
-  color: ${({theme}) => theme.color.predefined.red};    
-`
+  color: ${({theme}) => theme.color.predefined.red};
+`;
 
 const Black = styled.span`
   color: ${({theme}) => theme.color.predefined.black};
-`
+`;
+
+export const BlackRedLogo = () => (
+    <BlackRedLogoContainer>
+        <Logo/>
+    </BlackRedLogoContainer>
+);
+
+const BlackRedLogoContainer = styled.div`
+  ${Red} {
+    color: red;
+  }
+
+  ${Black} {
+    color: black;
+  }
+`;

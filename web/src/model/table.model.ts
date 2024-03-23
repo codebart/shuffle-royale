@@ -1,4 +1,5 @@
 import {Card} from './card.model';
+import {PlayerAction} from './betting.model';
 
 export type TableState = {
     seatsCount: number;
@@ -20,16 +21,6 @@ export type Player = {
     name: string;
     stack: number;
     avatar?: string;
-}
-
-export enum PlayerAction {
-    NONE = 'NONE',
-    FOLD = 'FOLD',
-    CHECK = 'CHECK',
-    BET = 'BET',
-    CALL = 'CALL',
-    RAISE = 'RAISE',
-    ALL_IN = 'ALL_IN'
 }
 
 export type Seat = PlayerSeat | FreeSeat;

@@ -1,8 +1,9 @@
 import {CardComponent} from 'component/poker/card/Card';
-import {PlayerAction, PlayerSeat} from 'model/table.model';
+import {PlayerSeat} from 'model/table.model';
 import {Coins} from 'component/shared/Coins';
 import {Avatar} from 'component/shared/Avatar';
 import styled from 'styled-components';
+import {PlayerAction} from '../../../model/betting.model';
 
 export const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, secondCard], player}}: { seat: PlayerSeat }) => (
     <PlayerSeatBadgeContainer>

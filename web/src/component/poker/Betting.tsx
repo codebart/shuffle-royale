@@ -1,36 +1,46 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {Button} from 'component/ui/Button';
 import {Input} from 'component/ui/Input';
 import {CoinIcon} from 'component/shared/Coins';
 import {useTranslation} from 'react-i18next';
+import {useForm} from 'react-hook-form';
+import {BettingActionForm, BettingOptions, initialBettingActionForm, PlayerAction} from 'model/betting.model';
 
-export const Betting = () => {
+export const Betting = ({pot, actions}: BettingOptions) => {
     const {t} = useTranslation();
+    const {register, watch, setValue} = useForm<BettingActionForm>({
+        defaultValues: initialBettingActionForm
+    });
+    const changeAction = useCallback((action: PlayerAction) => () => setValue('action', action), [setValue]);
+    const changeValue = useCallback((value: number | 'all-in') => () => setValue('value', value), [setValue]);
+    const hasOption = useCallback((action: PlayerAction): boolean => !!actions.find(option => option.action === action), []);
     return (
         <BettingContainer>
             <ActionsContainer>
-                <Button>{t('betting.fold')}</Button>
-                <Button>{t('betting.call')}<CoinIcon/></Button>
-                <Button>{t('betting.check')}</Button>
-                <Button>{t('betting.bet')}</Button>
-                <Button>{t('betting.raise')}</Button>
+                {hasOption(PlayerAction.FOLD) && <Button onClick={changeAction(PlayerAction.FOLD)}>{t('betting.fold')}</Button>}
+                {hasOption(PlayerAction.CALL) && <Button onClick={changeAction(PlayerAction.CALL)}>{t('betting.call')}<CoinIcon/></Button>}
+                {hasOption(PlayerAction.CHECK) && <Button onClick={changeAction(PlayerAction.CHECK)}>{t('betting.check')}</Button>}
+                {hasOption(PlayerAction.BET) && <Button onClick={changeAction(PlayerAction.BET)}>{t('betting.bet')}</Button>}
+                {hasOption(PlayerAction.RAISE) && <Button onClick={changeAction(PlayerAction.RAISE)}>{t('betting.raise')}</Button>}
             </ActionsContainer>
-            <BottomBetSizeRowContainer>
-                <div>
-                    <ChooseSizeContainer>
-                        <Button>{t('bet.size.min')}</Button>
-                        <Button>{t('bet.size.half')}</Button>
-                        <Button>{t('bet.size.twoThirds')}</Button>
-                        <Button>{t('bet.size.pot')}</Button>
-                        <Button>{t('bet.size.allIn')}</Button>
-                    </ChooseSizeContainer>
-                    <BetSizeSelector type={'range'}/>
-                </div>
-                <BetSizeContainer>
-                    <CoinIcon/><BetSizeInput type={'text'}/>
-                </BetSizeContainer>
-            </BottomBetSizeRowContainer>
+            {(hasOption(PlayerAction.BET) || hasOption(PlayerAction.RAISE)) && (
+                <BottomBetSizeRowContainer>
+                    <div>
+                        <ChooseSizeContainer>
+                            <Button onClick={changeValue(0)}>{t('bet.size.min')}</Button>
+                            <Button onClick={changeValue(0)}>{t('bet.size.half')}</Button>
+                            <Button onClick={changeValue(0)}>{t('bet.size.twoThirds')}</Button>
+                            <Button onClick={changeValue(pot)}>{t('bet.size.pot')}</Button>
+                            <Button onClick={changeValue('all-in')}>{t('bet.size.allIn')}</Button>
+                        </ChooseSizeContainer>
+                        <BetSizeSelector min={0} max={1000} {...register('value')} type={'range'}/>
+                    </div>
+                    <BetSizeContainer>
+                        <CoinIcon/><BetSizeInput value={watch('value')} type={'text'}/>
+                    </BetSizeContainer>
+                </BottomBetSizeRowContainer>
+            )}
         </BettingContainer>
     );
 };

@@ -1,13 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
 import {Button} from 'component/ui/Button';
-
-enum AutoBetAction {
-    FOLD = 'FOLD',
-    CHECK_FOLD = 'CHECK_FOLD',
-    CHECK = 'CHECK',
-    CALL_ANY = 'CALL_ANY'
-}
+import {AutoBetAction} from 'model/betting.model';
 
 interface AutoBetControl {
     fold: boolean;

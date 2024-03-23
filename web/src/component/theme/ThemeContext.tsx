@@ -17,6 +17,7 @@ type ThemeContextState = {
 const ThemeContext = createContext<ThemeContextState>({} as ThemeContextState);
 
 const reducer = (state: CurrentTheme, action: ThemeType): CurrentTheme => {
+    localStorage.setItem('theme', action);
     return {
         theme: themes[action],
         type: action
@@ -27,9 +28,11 @@ type ThemeContextProviderProps = {
     children: ReactElement[];
 }
 
+const savedTheme = localStorage.getItem('theme') as ThemeType || 'light';
+
 const initialState: CurrentTheme = {
-    theme: themes.light,
-    type: 'light'
+    theme: themes[savedTheme],
+    type: savedTheme
 }
 
 export const ThemeContextProvider = ({ children }: ThemeContextProviderProps) => {

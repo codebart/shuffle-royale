@@ -26,7 +26,6 @@ const RoomsRoute = () => (
 
 const RoomRoute = () => (
     <Layout>
-        <Logo/>
         <Account/>
         <Room/>
     </Layout>
