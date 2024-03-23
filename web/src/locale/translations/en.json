@@ -8,6 +8,9 @@
         "seats": "Seats",
         "buyIn": "Buy in (big blinds)",
         "noLimit": "No Limit"
+      },
+      "seat": {
+        "take": "\uD83D\uDCBA Take seat"
       }
     },
     "rooms": {

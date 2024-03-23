@@ -9,7 +9,7 @@ export const Betting = () => {
         <BettingContainer>
             <ActionsContainer>
                 <Button>Fold</Button>
-                <Button>Call 🪙</Button>
+                <Button>Call <CoinIcon/></Button>
                 <Button>Check</Button>
                 <Button>Bet</Button>
                 <Button>Raise</Button>
