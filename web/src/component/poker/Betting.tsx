@@ -1,6 +1,8 @@
 import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
 import {Button} from '../ui/Button';
+import {Input} from '../ui/Input';
+import {CoinIcon} from '../shared/Coins';
 
 export const Betting = () => {
     return (
@@ -24,7 +26,7 @@ export const Betting = () => {
                     <BetSizeSelector type={'range'}/>
                 </div>
                 <BetSizeContainer>
-                    🪙<BetSizeInput type={'text'}/>
+                    <CoinIcon/><BetSizeInput type={'text'}/>
                 </BetSizeContainer>
             </BottomBetSizeRowContainer>
         </BettingContainer>
@@ -42,7 +44,7 @@ const BettingContainer = styled.div`
   flex-direction: column;
   padding: 0.5rem;
   gap: 0.5rem;
-  border: 2px solid lightgray;
+  border: 2px solid ${({theme}) => theme.color.background.lightest};
   margin: 0.5rem;
   width: 40rem;
 `;
@@ -66,15 +68,17 @@ const BetSizeContainer = styled.div`
   height: 4rem;
   font-size: 2rem;
   align-items: center;
-  border: 2px solid lightgray;
+  border: 2px solid ${({theme}) => theme.color.background.lightest};
   padding: 0.5rem;
   justify-content: center;
+  background-color: ${({theme}) => theme.color.background.normal};;
 `;
 
-const BetSizeInput = styled.input`
+const BetSizeInput = styled(Input)`
   background-color: transparent;
   font-size: 2rem;
   width: 100%;
+  border: none;
 `;
 
 const BetSizeSelector = styled.input`

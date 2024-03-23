@@ -9,7 +9,6 @@ export const ChangeTheme = () => (
     </Container>
 );
 
-// @ts-ignore
 const ChangeThemeIcon = (): ReactElement => {
     const {current, changeTheme} = useThemeContext();
     switch (current.type) {

@@ -46,9 +46,9 @@ const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, sec
 );
 
 const ActionContainer = styled.div`
-  background-color: #0f427c;
-  border-radius: 25px;
-  border: 2px solid #082546;
+  background-color: ${({theme}) => theme.color.primary.normal};
+  border-radius: ${({theme}) => theme.borderRadius.medium};
+  border: 2px solid ${({theme}) => theme.color.primary.dark};
   color: white;
   position: absolute;
   width: 8.3rem;
@@ -67,9 +67,9 @@ const PlayerSeatBadgeContainer = styled.div`
 `
 
 const PlayerSeatContainer = styled.div`
-  background-color: #DDDDDD;
-  border-radius: 25px;
-  border: 2px solid #CCCCCC;
+  background-color: ${({theme}) => theme.color.background.normal};
+  border-radius: ${({theme}) => theme.borderRadius.medium};
+  border: 2px solid ${({theme}) => theme.color.background.light};
   padding: 0.3rem 0.3rem 0.3rem 1rem;
   position: relative;
   display: flex;

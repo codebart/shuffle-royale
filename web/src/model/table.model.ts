@@ -1,11 +1,11 @@
-import {CardModel} from './card.model';
+import {Card} from './card.model';
 
 export type TableState = {
     seatsCount: number;
     seats: Seat[];
     button: number;
     stage: Stage;
-    cards: [CardModel, CardModel, CardModel, CardModel, CardModel] | [];
+    cards: [Card, Card, Card, Card, Card] | [];
 }
 
 export enum Stage {
@@ -41,7 +41,7 @@ export type FreeSeat = {
 export type PlayerSeat = {
     occupied: true;
     player: Player;
-    cards: [CardModel, CardModel];
+    cards: [Card, Card];
     action: PlayerAction;
     actionValue: number | null;
 }
