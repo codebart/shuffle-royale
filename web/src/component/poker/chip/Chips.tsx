@@ -1,4 +1,4 @@
-import {ChipCounts, chipValues, chipValueTypesAsc, chipValueTypesDesc} from '../../../model/chip.model';
+import {ChipCounts, chipValues, chipValueTypesAsc, chipValueTypesDesc} from 'model/chip.model';
 import styled from 'styled-components';
 import React from 'react';
 import {ChipsStack} from './ChipsStack';

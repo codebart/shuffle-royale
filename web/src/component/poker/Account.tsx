@@ -1,7 +1,7 @@
-import {Avatar} from '../shared/Avatar';
+import {Avatar} from 'component/shared/Avatar';
 import styled from 'styled-components';
-import {Coins} from '../shared/Coins';
-import {useAccountInfo} from '../../api/endpoint/accountInfo.get';
+import {Coins} from 'component/shared/Coins';
+import {useAccountInfo} from 'api/endpoint/accountInfo.get';
 
 export const Account = () => {
     const account = useAccountInfo();

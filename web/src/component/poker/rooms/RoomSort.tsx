@@ -1,10 +1,10 @@
-import {Select} from '../../ui/Select';
+import {Select} from 'component/ui/Select';
 import styled from 'styled-components';
 import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useForm} from 'react-hook-form';
-import {Input} from '../../ui/Input';
-import {initialSortForm, SortDirection, SortForm, SortKey} from '../../../model/rooms.model';
+import {Input} from 'component/ui/Input';
+import {initialSortForm, SortDirection, SortForm, SortKey} from 'model/rooms.model';
 
 export const RoomsSort = ({onChange}: {onChange: (form: SortForm) => void}) => {
     const {t} = useTranslation();

@@ -1,8 +1,8 @@
 import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
-import {Button} from '../ui/Button';
-import {Input} from '../ui/Input';
-import {CoinIcon} from '../shared/Coins';
+import {Button} from 'component/ui/Button';
+import {Input} from 'component/ui/Input';
+import {CoinIcon} from 'component/shared/Coins';
 
 export const Betting = () => {
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import {routes} from '../../routing/routes';
+import {routes} from 'routing/routes';
 
 export const NotFound = () => (
     <Container>

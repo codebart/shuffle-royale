@@ -1,6 +1,6 @@
 import {useTranslation} from 'react-i18next';
-import {useTakeSeat} from '../../../api/endpoint/takeSeat.post';
-import {Button} from '../../ui/Button';
+import {useTakeSeat} from 'api/endpoint/takeSeat.post';
+import {Button} from 'component/ui/Button';
 import React from 'react';
 
 export const TakeSeat = ({seatIndex, roomId}: { seatIndex: number, roomId: number }) => {

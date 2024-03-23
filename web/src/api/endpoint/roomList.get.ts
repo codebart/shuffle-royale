@@ -1,9 +1,9 @@
-import {rootUrl} from '../httpApiRoutes';
+import {rootUrl} from 'api/httpApiRoutes';
 import {useQuery, UseQueryResult} from '@tanstack/react-query';
-import {ApiError} from '../apiError';
-import {RoomListRequest, RoomListResponse} from '../model/roomList.model';
-import {get} from '../httpApi';
-import {defaultPage} from '../model/pagination.model';
+import {ApiError} from 'api/apiError';
+import {RoomListRequest, RoomListResponse} from 'api/model/roomList.model';
+import {get} from 'api/httpApi';
+import {defaultPage} from 'api/model/pagination.model';
 
 export const useRoomList = (request: RoomListRequest): UseQueryResult<RoomListResponse, ApiError> => {
     return useQuery<RoomListResponse, ApiError>({

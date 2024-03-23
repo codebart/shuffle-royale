@@ -1,7 +1,7 @@
 import React from 'react';
-import {Seat} from '../../../model/table.model';
 import {TakeSeat} from './TakeSeat';
 import {PlayerSeatComponent} from './PlayerSeat';
+import {Seat} from 'model/table.model';
 
 type SeatProps = {
     roomId: number;

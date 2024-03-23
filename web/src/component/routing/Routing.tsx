@@ -1,11 +1,11 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {ErrorPage} from './ErrorPage';
-import {Layout} from '../shared/Layout';
-import {Logo} from '../shared/Logo';
-import {Account} from '../poker/Account';
-import {Rooms} from '../poker/rooms/Rooms';
-import {Room} from '../poker/Room';
+import {Layout} from 'component/shared/Layout';
+import {Logo} from 'component/shared/Logo';
+import {Account} from 'component/poker/Account';
+import {Rooms} from 'component/poker/rooms/Rooms';
+import {Room} from 'component/poker/Room';
 
 export const Routing = () => (
     <Routes>

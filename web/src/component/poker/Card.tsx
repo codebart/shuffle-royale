@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Card, FaceUpCard, suitColor} from '../../model/card.model';
+import {Card, FaceUpCard, suitColor} from 'model/card.model';
 import {SuitSymbol} from './Suit';
 
 const widthRatio: number = 0.64;

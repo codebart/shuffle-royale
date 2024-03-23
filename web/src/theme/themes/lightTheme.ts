@@ -1,4 +1,4 @@
-import {Theme} from '../theme';
+import {Theme} from 'theme/theme';
 
 export const lightTheme: Theme = {
     scheme: 'light',

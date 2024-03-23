@@ -1,13 +1,13 @@
-import {Select} from '../../ui/Select';
-import {Input} from '../../ui/Input';
+import {Select} from 'component/ui/Select';
+import {Input} from 'component/ui/Input';
 import styled from 'styled-components';
 import React from 'react';
-import {blinds} from '../../../model/room.model';
+import {blinds} from 'model/room.model';
 import {useTranslation} from 'react-i18next';
 import {
     initialRoomsFiltersForm,
     RoomsFiltersForm,
-} from '../../../model/rooms.model';
+} from 'model/rooms.model';
 import {useForm} from 'react-hook-form';
 
 export const RoomsFilters = ({onChange}: { onChange: (form: RoomsFiltersForm) => void }) => {

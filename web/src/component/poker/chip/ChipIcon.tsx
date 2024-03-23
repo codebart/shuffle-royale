@@ -1,4 +1,4 @@
-import {ChipValue} from '../../../model/chip.model';
+import {ChipValue} from 'model/chip.model';
 import React from 'react';
 
 type ChipColor = {

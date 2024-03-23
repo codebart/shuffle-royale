@@ -1,9 +1,9 @@
-import {post} from '../httpApi';
-import {rootUrl} from '../httpApiRoutes';
+import {post} from 'api/httpApi';
+import {rootUrl} from 'api/httpApiRoutes';
 import {useQuery, UseQueryResult} from '@tanstack/react-query';
-import {ApiError} from '../apiError';
-import {TakeSeatRequest} from '../model/takeSeat.model';
-import {EmptyResponse} from '../model/response.model';
+import {ApiError} from 'api/apiError';
+import {TakeSeatRequest} from 'api/model/takeSeat.model';
+import {EmptyResponse} from 'api/model/response.model';
 
 export const useTakeSeat = (request: TakeSeatRequest): UseQueryResult<EmptyResponse, ApiError> => {
     return useQuery<EmptyResponse, ApiError>({

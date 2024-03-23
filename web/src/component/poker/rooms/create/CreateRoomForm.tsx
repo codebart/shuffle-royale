@@ -1,12 +1,12 @@
-import {Button} from '../../../ui/Button';
+import {Button} from 'component/ui/Button';
 import styled from 'styled-components';
 import React, {useCallback} from 'react';
-import {Select} from '../../../ui/Select';
-import {blinds} from '../../../../model/room.model';
-import {Input} from '../../../ui/Input';
+import {Select} from 'component/ui/Select';
+import {blinds} from 'model/room.model';
+import {Input} from 'component/ui/Input';
 import {useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
-import {useCreateRoom} from '../../../../api/endpoint/createRoom.post';
+import {useCreateRoom} from 'api/endpoint/createRoom.post';
 
 type CreateRoomForm = {
     blinds: string;

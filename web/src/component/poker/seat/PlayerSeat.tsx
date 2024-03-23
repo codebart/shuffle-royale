@@ -1,7 +1,7 @@
-import {CardComponent} from '../Card';
-import {PlayerSeat} from '../../../model/table.model';
-import {Coins} from '../../shared/Coins';
-import {Avatar} from '../../shared/Avatar';
+import {CardComponent} from 'component/poker/Card';
+import {PlayerSeat} from 'model/table.model';
+import {Coins} from 'component/shared/Coins';
+import {Avatar} from 'component/shared/Avatar';
 import styled from 'styled-components';
 
 export const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, secondCard], player}}: { seat: PlayerSeat }) => (

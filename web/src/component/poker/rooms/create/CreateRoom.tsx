@@ -1,4 +1,4 @@
-import {Button} from '../../../ui/Button';
+import {Button} from 'component/ui/Button';
 import styled from 'styled-components';
 import React, {useCallback, useState} from 'react';
 import {CreateRoomForm} from './CreateRoomForm';

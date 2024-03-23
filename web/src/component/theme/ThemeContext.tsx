@@ -1,8 +1,8 @@
 import {createContext, Dispatch, ReactElement, useContext, useReducer} from 'react';
 
 import {ThemeProvider} from 'styled-components';
-import {Theme} from '../../theme/theme';
-import {themes, ThemeType} from '../../theme/themes';
+import {Theme} from 'theme/theme';
+import {themes, ThemeType} from 'theme/themes';
 
 type CurrentTheme = {
     theme: Theme;

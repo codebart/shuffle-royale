@@ -1,7 +1,7 @@
 import {useThemeContext} from './ThemeContext';
 import styled from 'styled-components';
 import {ReactElement} from 'react';
-import {Button} from '../ui/Button';
+import {Button} from 'component/ui/Button';
 
 export const ChangeTheme = () => (
     <Container>

@@ -1,13 +1,13 @@
 import React from 'react';
 import {Table} from './Table';
 import styled from 'styled-components';
-import {PlayerAction, Stage, TableState} from '../../model/table.model';
+import {PlayerAction, Stage, TableState} from 'model/table.model';
 import {CardComponent} from './Card';
 import {SeatComponent} from './seat/Seat';
 import {Betting} from './Betting';
 import {DealerButton} from './DealerButton';
 import {Chips} from './chip/Chips';
-import {Card} from '../../model/card.model';
+import {Card} from 'model/card.model';
 
 type SeatAlign = 'start' | 'end' | 'center';
 

@@ -1,5 +1,5 @@
-import {Select} from '../../ui/Select';
-import {Button} from '../../ui/Button';
+import {Select} from 'component/ui/Select';
+import {Button} from 'component/ui/Button';
 import styled from 'styled-components';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
