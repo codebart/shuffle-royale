@@ -2,7 +2,7 @@ import React from 'react';
 import {Table} from './Table';
 import styled from 'styled-components';
 import {PlayerAction, Stage, TableState} from 'model/table.model';
-import {CardComponent} from './Card';
+import {CardComponent} from './card/Card';
 import {SeatComponent} from './seat/Seat';
 import {Betting} from './Betting';
 import {useTranslation} from 'react-i18next';

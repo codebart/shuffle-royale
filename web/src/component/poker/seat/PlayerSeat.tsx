@@ -1,4 +1,4 @@
-import {CardComponent} from 'component/poker/Card';
+import {CardComponent} from 'component/poker/card/Card';
 import {PlayerAction, PlayerSeat} from 'model/table.model';
 import {Coins} from 'component/shared/Coins';
 import {Avatar} from 'component/shared/Avatar';

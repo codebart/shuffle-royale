@@ -2,7 +2,7 @@ import {Suit, suitColor, suitSymbol} from 'model/card.model';
 import styled from 'styled-components';
 import React from 'react';
 
-export const SuitSymbol = ({suit, size}: { suit: Suit, size: string }) => (
+export const CardSuitSymbol = ({suit, size}: { suit: Suit, size: string }) => (
     <SuitSymbolContainer size={size} color={suitColor(suit)}>{suitSymbol(suit)}</SuitSymbolContainer>
 );
 
