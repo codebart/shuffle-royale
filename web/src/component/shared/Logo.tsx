@@ -13,13 +13,13 @@ const LogoContainer = styled.div`
   font-weight: bold;
   padding: 0.2em 0.5em;
   border-radius: 0.5em;
-  border: 5px dotted #BBBBBB;
+  border: 8px double ${({theme}) => theme.color.background.lightest};
 `;
 
 const Red = styled.span`
-  color: red;    
+  color: ${({theme}) => theme.color.predefined.red};    
 `
 
 const Black = styled.span`
-  color: black;  
+  color: ${({theme}) => theme.color.predefined.black};
 `

@@ -2,12 +2,13 @@ import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: ${({theme}) => theme.color.background.normal};
+    background: ${({theme}) => theme.color.background.darkest};
     font-family: ${({theme}) => theme.font.family};
     font-size: ${({theme}) => theme.font.size.small};
     color: ${({theme}) => theme.color.secondary.normal};
     user-select: none;
     letter-spacing: 1px;
+    color-scheme: ${({theme}) => theme.scheme};
   }
   
   input {

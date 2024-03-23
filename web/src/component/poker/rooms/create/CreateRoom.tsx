@@ -17,7 +17,7 @@ export const CreateRoom = () => {
 };
 
 const CreateRoomContainer = styled.li`
-  border: 2px solid lightgray;
+  border: 2px solid ${({theme}) => theme.color.background.light};
   border-bottom: none;
   display: flex;
   padding: 0.5rem;

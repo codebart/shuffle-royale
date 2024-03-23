@@ -47,7 +47,7 @@ export const RoomPagination = ({totalElements}: {totalElements: number}) => {
 
 const RoomPaginationContainer = styled.form`
   display: flex;
-  border: 2px solid lightgray;
+  border: 2px solid ${({theme}) => theme.color.background.light};
   border-bottom: none;
   padding: 0.5rem;
   align-items: center;
@@ -62,6 +62,6 @@ const RoomPaginationContainer = styled.form`
     width: 3rem;
     flex-grow: 0;
     font-weight: bold;
-    color: #666666;
+    color: ${({theme}) => theme.color.secondary.darkest};
   }
 `;

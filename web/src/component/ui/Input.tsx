@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
-  border: 2px solid #CCCCCC;
+  border: 2px solid ${({theme}) => theme.color.background.light};
   border-radius: 5px;
-  background-color: #EEEEEE;
+  background-color: ${({theme}) => theme.color.background.normal};
   padding: 0.4rem;
+  color: ${({theme}) => theme.color.secondary.normal};
 
   &[type="checkbox"] {
-    accent-color: #CCCCCC;
+    accent-color: ${({theme}) => theme.color.background.normal};
     width: 18px;
     height: 18px;
     cursor: pointer;
@@ -16,8 +17,8 @@ export const Input = styled.input`
   &[type="button"] {
     cursor: pointer;
     &:hover {
-      background-color: #CCCCCC;
-      border-color: #BBBBBB;
+      background-color: ${({theme}) => theme.color.background.light};
+      border-color: ${({theme}) => theme.color.background.lightest};
     }
   }
 `;

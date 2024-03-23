@@ -21,7 +21,7 @@ export const RoomList = ({rooms}: { rooms: RoomModel[] }) => {
 };
 
 const RoomListContainer = styled.div`
-  border-top: 2px solid lightgray;
+  border-top: 2px solid ${({theme}) => theme.color.background.light};
   margin-top: 1rem;
 `;
 
@@ -34,11 +34,11 @@ const RoomUnorderedList = styled.ul`
   }
 
   > li:last-child {
-    border-bottom: 2px solid lightgray;
+    border-bottom: 2px solid ${({theme}) => theme.color.background.light};
   }
 
   > li:nth-child(odd) {
-    background-color: #DDDDDD;
+    background-color: ${({theme}) => theme.color.background.dark};
   }
 `;
 
@@ -58,13 +58,13 @@ const RoomViewContainer = styled.li`
   display: grid;
   grid-template-columns: 1fr 3fr 2fr 2fr 4fr 2fr 3fr;
   column-gap: 0.5rem;
-  border: 2px solid lightgray;
+  border: 2px solid ${({theme}) => theme.color.background.light};
   border-bottom: none;
   padding: 0.5rem;
   align-items: center;
 
   div {
-    border-right: 1px solid lightgray;
+    border-right: 1px solid ${({theme}) => theme.color.background.light};
     padding-right: 0.5rem;
   }
 `;
