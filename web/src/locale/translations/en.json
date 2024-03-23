@@ -11,7 +11,8 @@
       },
       "seat": {
         "take": "\uD83D\uDCBA Take seat"
-      }
+      },
+      "header": "Room"
     },
     "rooms": {
       "list": {

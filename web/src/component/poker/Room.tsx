@@ -5,9 +5,8 @@ import {PlayerAction, Stage, TableState} from 'model/table.model';
 import {CardComponent} from './Card';
 import {SeatComponent} from './seat/Seat';
 import {Betting} from './Betting';
-import {DealerButton} from './DealerButton';
-import {Chips} from './chip/Chips';
-import {Card} from 'model/card.model';
+import {useTranslation} from 'react-i18next';
+import {AutoBet} from './AutoBet';
 
 type SeatAlign = 'start' | 'end' | 'center';
 
@@ -148,7 +147,7 @@ const table: TableState = {
                 stack: 2137
             },
             cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.RAISE,
+            action: PlayerAction.NONE,
             actionValue: 44444,
         },
         {
@@ -191,11 +190,12 @@ const table: TableState = {
 }
 
 export const Room = () => {
+    const {t} = useTranslation();
     return (
         <RoomContainer>
-            <RoomId>Room #1234</RoomId>
+            <RoomId>{t('room.header')} #1234</RoomId>
             <TableLayout/>
-            {/*<AutoBet/>*/}
+            <AutoBet/>
             <Betting/>
         </RoomContainer>
     );
@@ -203,9 +203,7 @@ export const Room = () => {
 
 const RoomContainer = styled.div`
   width: calc(100% - 10rem);
-  padding: 2rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding: 2rem 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,11 +220,6 @@ const TableLayout = () => {
     return (
         <TableContainer>
             <Table/>
-            <div style={{position: 'absolute', left: 370, top: 100}}>
-                <Chips value={456345345}/>
-            </div>
-
-            <DealerButton/>
             <SharedCards>
                 {table.cards.map((card, index) => <CardComponent key={index} size={120} card={card}/>)}
             </SharedCards>

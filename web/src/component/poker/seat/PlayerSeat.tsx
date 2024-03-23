@@ -1,5 +1,5 @@
 import {CardComponent} from 'component/poker/Card';
-import {PlayerSeat} from 'model/table.model';
+import {PlayerAction, PlayerSeat} from 'model/table.model';
 import {Coins} from 'component/shared/Coins';
 import {Avatar} from 'component/shared/Avatar';
 import styled from 'styled-components';
@@ -10,10 +10,12 @@ export const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCa
             {firstCard && <CardComponent size={100} card={firstCard}/>}
             {secondCard && <CardComponent size={100} card={secondCard}/>}
         </CardsContainer>
-        <ActionContainer>
-            {action}
-            {actionValue && <Coins coins={actionValue}/>}
-        </ActionContainer>
+        {action !== PlayerAction.NONE && (
+            <ActionContainer>
+                {action}
+                {actionValue && <Coins coins={actionValue}/>}
+            </ActionContainer>
+        )}
         <PlayerSeatContainer>
             <div>
                 <PlayerName>{player.name}</PlayerName>
