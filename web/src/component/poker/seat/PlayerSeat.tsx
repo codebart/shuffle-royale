@@ -1,31 +1,10 @@
-import React from 'react';
+import {CardComponent} from '../Card';
+import {PlayerSeat} from '../../../model/table.model';
+import {Coins} from '../../shared/Coins';
+import {Avatar} from '../../shared/Avatar';
 import styled from 'styled-components';
-import {Avatar} from '../shared/Avatar';
-import {PlayerSeat, Seat} from '../../model/table.model';
-import {Coins} from '../shared/Coins';
-import {CardComponent} from './Card';
 
-type SeatProps = {
-    seat: Seat
-}
-
-export const SeatComponent = ({seat}: SeatProps) => {
-    if (seat.occupied) {
-        return <PlayerSeatComponent seat={seat}/>;
-    }
-    return <TakeSeat/>;
-};
-
-const TakeSeat = () => (
-    <div>
-        <i/>
-        <div>
-            Take seat
-        </div>
-    </div>
-);
-
-const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, secondCard], occupied, player}}: { seat: PlayerSeat }) => (
+export const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, secondCard], player}}: { seat: PlayerSeat }) => (
     <PlayerSeatBadgeContainer>
         <CardsContainer>
             {firstCard && <CardComponent size={100} card={firstCard}/>}

@@ -3,10 +3,11 @@ import {Table} from './Table';
 import styled from 'styled-components';
 import {PlayerAction, Stage, TableState} from '../../model/table.model';
 import {CardComponent} from './Card';
-import {SeatComponent} from './Seat';
+import {SeatComponent} from './seat/Seat';
 import {Betting} from './Betting';
 import {DealerButton} from './DealerButton';
 import {Chips} from './chip/Chips';
+import {Card} from '../../model/card.model';
 
 type SeatAlign = 'start' | 'end' | 'center';
 
@@ -119,24 +120,12 @@ const table: TableState = {
             actionValue: 23524,
         },
         {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.CHECK,
-            actionValue: null,
+            occupied: false
+
         },
         {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.BET,
-            actionValue: 6363,
+            occupied: false
+
         },
 
         {
@@ -150,14 +139,7 @@ const table: TableState = {
             actionValue: null,
         },
         {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.CALL,
-            actionValue: 23524,
+            occupied: false
         },
         {
             occupied: true,
@@ -170,24 +152,11 @@ const table: TableState = {
             actionValue: 44444,
         },
         {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.ALL_IN,
-            actionValue: 23524,
+            occupied: false
         },
         {
-            occupied: true,
-            player: {
-                name: 'Test',
-                stack: 2137
-            },
-            cards: [{shown: false}, {shown: false}],
-            action: PlayerAction.ALL_IN,
-            actionValue: 23524,
+            occupied: false
+
         },
     ],
     seatsCount: 3,
@@ -254,16 +223,15 @@ const TableLayout = () => {
         <TableContainer>
             <Table/>
             <div style={{position: 'absolute', left: 370, top: 100}}>
-                <Chips value={21350}/>
+                <Chips value={456345345}/>
             </div>
 
             <DealerButton/>
             <SharedCards>
-                {table.cards.map(card => <CardComponent size={120} card={card}/>)}
+                {table.cards.map((card, index) => <CardComponent key={index} size={120} card={card}/>)}
             </SharedCards>
             <SeatsContainer>
-                {table.seats.map((seat, index) => <SeatLocation position={positions[index]}><SeatComponent
-                    seat={seat}/></SeatLocation>)}
+                {table.seats.map((seat, index) => <SeatLocation key={index} position={positions[index]}><SeatComponent roomId={0} index={index} seat={seat}/></SeatLocation>)}
             </SeatsContainer>
         </TableContainer>
     );
