@@ -1,5 +1,21 @@
 {
   "translation": {
+    "betting": {
+      "fold": "Fold",
+      "call": "Call",
+      "check": "Check",
+      "bet": "Bet",
+      "raise": "Raise"
+    },
+    "bet": {
+      "size": {
+        "min": "Min",
+        "half": "1/2",
+        "twoThirds": "2/3",
+        "pot": "Pot",
+        "allIn": "All in"
+      }
+    },
     "room": {
       "create": {
         "create": "Create",
@@ -37,11 +53,11 @@
         "header": "Sort",
         "sortBy": "Sort by",
         "key": {
-          "BLINDS":  "Blinds",
+          "BLINDS": "Blinds",
           "SEATS": "Seats",
-          "PLAYERS":  "Players",
+          "PLAYERS": "Players",
           "TOTAL_STACKS": "Total stacks",
-          "BUY_IN":  "Buy in",
+          "BUY_IN": "Buy in",
           "ID": "Id"
         }
       }

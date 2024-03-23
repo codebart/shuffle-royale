@@ -1,27 +1,29 @@
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {Button} from 'component/ui/Button';
 import {Input} from 'component/ui/Input';
 import {CoinIcon} from 'component/shared/Coins';
+import {useTranslation} from 'react-i18next';
 
 export const Betting = () => {
+    const {t} = useTranslation();
     return (
         <BettingContainer>
             <ActionsContainer>
-                <Button>Fold</Button>
-                <Button>Call <CoinIcon/></Button>
-                <Button>Check</Button>
-                <Button>Bet</Button>
-                <Button>Raise</Button>
+                <Button>{t('betting.fold')}</Button>
+                <Button>{t('betting.call')}<CoinIcon/></Button>
+                <Button>{t('betting.check')}</Button>
+                <Button>{t('betting.bet')}</Button>
+                <Button>{t('betting.raise')}</Button>
             </ActionsContainer>
             <BottomBetSizeRowContainer>
                 <div>
                     <ChooseSizeContainer>
-                        <Button>Min</Button>
-                        <Button>1/2</Button>
-                        <Button>2/3</Button>
-                        <Button>Pot</Button>
-                        <Button>All in</Button>
+                        <Button>{t('bet.size.min')}</Button>
+                        <Button>{t('bet.size.half')}</Button>
+                        <Button>{t('bet.size.twoThirds')}</Button>
+                        <Button>{t('bet.size.pot')}</Button>
+                        <Button>{t('bet.size.allIn')}</Button>
                     </ChooseSizeContainer>
                     <BetSizeSelector type={'range'}/>
                 </div>
