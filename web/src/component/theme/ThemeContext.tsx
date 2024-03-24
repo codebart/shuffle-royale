@@ -28,7 +28,7 @@ type ThemeContextProviderProps = {
     children: ReactElement[];
 }
 
-const savedTheme = localStorage.getItem('theme') as ThemeType || 'light';
+const savedTheme = localStorage.getItem('theme') as ThemeType || 'dark';
 
 const initialState: CurrentTheme = {
     theme: themes[savedTheme],
