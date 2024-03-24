@@ -32,6 +32,7 @@ const Container = styled.div`
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     filter: grayscale(1);
+    height: 2.3rem;
 
     &:hover {
       opacity: 1;

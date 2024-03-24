@@ -38,7 +38,12 @@ export const languages: Language[] = [
     {
         code: 'en',
         name: 'English',
-        flag: 'gb'
+        flag: '🇬🇧'
+    },
+    {
+        code: 'pl',
+        name: 'Polski',
+        flag: '🇵🇱'
     }
 ];
 

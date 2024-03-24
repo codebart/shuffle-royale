@@ -7,6 +7,7 @@ import {ThemeContextProvider} from './theme/ThemeContext';
 import {HeadProvider} from 'react-head';
 import {Favicon} from './head/Favicon';
 import {ChangeTheme} from './theme/ChangeTheme';
+import {LanguageSelector} from './locale/LanguageSelector';
 
 const queryClient: QueryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ export const Application = () => (
                 <Routing/>
             </BrowserRouter>
             <ChangeTheme/>
+            <LanguageSelector/>
         </ThemeContextProvider>
     </QueryClientProvider>
 );
