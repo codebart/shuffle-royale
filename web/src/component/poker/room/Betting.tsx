@@ -5,7 +5,13 @@ import {Input} from 'component/ui/Input';
 import {CoinIcon} from 'component/shared/Coins';
 import {useTranslation} from 'react-i18next';
 import {useForm} from 'react-hook-form';
-import {BettingActionForm, BettingOptions, initialBettingActionForm, PlayerAction} from 'model/betting.model';
+import {
+    BettingActionForm,
+    BettingOption,
+    BettingOptions,
+    initialBettingActionForm,
+    PlayerAction
+} from 'model/betting.model';
 
 export const Betting = ({pot, actions}: BettingOptions) => {
     const {t} = useTranslation();
@@ -15,6 +21,7 @@ export const Betting = ({pot, actions}: BettingOptions) => {
     const changeAction = useCallback((action: PlayerAction) => () => setValue('action', action), [setValue]);
     const changeValue = useCallback((value: number | 'all-in') => () => setValue('value', value), [setValue]);
     const hasOption = useCallback((action: PlayerAction): boolean => !!actions.find(option => option.action === action), []);
+    const betRaiseAction = actions.find(option => option.action === PlayerAction.BET || option.action === PlayerAction.RAISE) as Required<BettingOption>;
     return (
         <BettingContainer>
             <ActionsContainer>
@@ -28,13 +35,13 @@ export const Betting = ({pot, actions}: BettingOptions) => {
                 <BottomBetSizeRowContainer>
                     <div>
                         <ChooseSizeContainer>
-                            <Button onClick={changeValue(0)}>{t('bet.size.min')}</Button>
-                            <Button onClick={changeValue(0)}>{t('bet.size.half')}</Button>
-                            <Button onClick={changeValue(0)}>{t('bet.size.twoThirds')}</Button>
+                            <Button onClick={changeValue(betRaiseAction.min)}>{t('bet.size.min')}</Button>
+                            <Button onClick={changeValue(betRaiseAction.max / 2)}>{t('bet.size.half')}</Button>
+                            <Button onClick={changeValue(betRaiseAction.max / 3 * 2)}>{t('bet.size.twoThirds')}</Button>
                             <Button onClick={changeValue(pot)}>{t('bet.size.pot')}</Button>
                             <Button onClick={changeValue('all-in')}>{t('bet.size.allIn')}</Button>
                         </ChooseSizeContainer>
-                        <BetSizeSelector min={0} max={1000} {...register('value')} type={'range'}/>
+                        <BetSizeSelector min={betRaiseAction.min} step={betRaiseAction.step} max={betRaiseAction.max} {...register('value')} type={'range'}/>
                     </div>
                     <BetSizeContainer>
                         <CoinIcon/><BetSizeInput value={watch('value')} type={'text'}/>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Table = () => (
+export const TableBackground = () => (
     <svg viewBox="0 0 96 54">
         <path fill="#333333" d="m 0 27 q 0 -27 27 -27 l 42 0 q 27 0 27 27 q 0 27 -27 27 l -43 0 q -27 0 -26 -27 z"/>
         <path fill="#0f427c" d="m 5 27 q 0 -22 22 -22 l 42 0 q 22 0 22 22 q 0 22 -22 22 l -43 0 q -21 0 -21 -22 z"/>

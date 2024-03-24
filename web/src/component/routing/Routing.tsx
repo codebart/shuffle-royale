@@ -5,7 +5,7 @@ import {Layout} from 'component/shared/Layout';
 import {Logo} from 'component/shared/Logo';
 import {Account} from 'component/poker/Account';
 import {Rooms} from 'component/poker/rooms/Rooms';
-import {Room} from 'component/poker/Room';
+import {Room} from 'component/poker/room/Room';
 
 export const Routing = () => (
     <Routes>
