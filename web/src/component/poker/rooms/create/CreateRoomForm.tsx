@@ -59,9 +59,13 @@ export const CreateRoomForm = ({onCreated}: {onCreated: () => void}) => {
                     <Input {...register('noLimit')} type={'checkbox'}/> {t('room.create.noLimit')}
                 </li>
             </ul>
+            {(createRoomQuery.isError && !createRoomQuery.isLoading) && (
+                <div>⚠ Failed to create a room</div>
+            )}
             <Button type={'submit'}>
                 {createRoomQuery.isLoading && <CreateRoomLoadingContainer><Loader/></CreateRoomLoadingContainer>}
-                {!createRoomQuery.isLoading && t('room.create.start')}
+                {(!createRoomQuery.isLoading && !createRoomQuery.isError) && t('room.create.start')}
+                {(!createRoomQuery.isLoading && createRoomQuery.isError) && '⟳ Retry'}
             </Button>
         </RoomCreatorContainer>
     );
@@ -87,6 +91,10 @@ const RoomCreatorContainer = styled.form`
       border-right: none;
     }
 
+  }
+  
+  > div {
+    text-align: center;
   }
   
   button {

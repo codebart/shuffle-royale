@@ -26,7 +26,9 @@ export const RoomList = ({rooms, loading, error, onRefresh}: { rooms: RoomModel[
                         <Button onClick={onRefresh}>⟳ Retry</Button>
                     </RoomsErrorContainer>
                 )}
-                <CreateRoom/>
+                {(!loading && !error) && (
+                    <CreateRoom/>
+                )}
                 <RoomPagination totalElements={1}/>
             </RoomUnorderedList>
         </RoomListContainer>
