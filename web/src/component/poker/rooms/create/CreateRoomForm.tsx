@@ -30,9 +30,10 @@ export const CreateRoomForm = ({onCreated}: {onCreated: () => void}) => {
     });
     const createRoomQuery = useCreateRoom(watch());
     const onSubmit = useCallback(async () => {
-        const {data, error} = await createRoomQuery.refetch();
-        if (data) {
+        const {isSuccess, data} = await createRoomQuery.refetch();
+        if (isSuccess && data) {
             onCreated();
+            window.open(`/room/${data.roomId}`, "_blank", "popup")
         }
     }, [createRoomQuery, onCreated]);
     return (
