@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Loader = () => (
     <LoaderContainer>
         <LoaderIcon>⌛</LoaderIcon>
-        Loading...
     </LoaderContainer>
 );
 
@@ -11,13 +10,13 @@ const LoaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: bold;
 `;
 
 const LoaderIcon = styled.span`
   filter: grayscale(1);
-  font-size: 3rem;
+  font-size: 3em;
   animation: spin 2s linear infinite;
 
   @keyframes spin {

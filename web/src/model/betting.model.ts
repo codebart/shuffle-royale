@@ -18,7 +18,8 @@ export enum AutoBetAction {
 export type BettingOption = {
     action: PlayerAction;
     min?: number;
-    max?: number | 'all-in';
+    step?: number;
+    max?: number;
 }
 
 export type BettingOptions = {

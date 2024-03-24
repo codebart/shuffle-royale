@@ -16,7 +16,7 @@ export const Rooms = () => {
         <RoomsContainer>
             <RoomsFilters onChange={form => setValue('filter', form)}/>
             <RoomsSort onChange={form => setValue('sort', form)}/>
-            <RoomList rooms={rooms.data?.rooms || []}/>
+            <RoomList onRefresh={() => rooms.refetch()} error={rooms.isError && !rooms.isFetching} loading={rooms.isFetching} rooms={rooms.data?.rooms || []}/>
         </RoomsContainer>
     );
 };

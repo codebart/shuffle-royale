@@ -7,6 +7,7 @@ import {Input} from 'component/ui/Input';
 import {useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {useCreateRoom} from 'api/endpoint/createRoom.post';
+import {Loader} from '../../../ui/Loader';
 
 type CreateRoomForm = {
     blinds: string;
@@ -57,7 +58,10 @@ export const CreateRoomForm = ({onCreated}: {onCreated: () => void}) => {
                     <Input {...register('noLimit')} type={'checkbox'}/> {t('room.create.noLimit')}
                 </li>
             </ul>
-            <Button type={'submit'}>{t('room.create.start')}</Button>
+            <Button type={'submit'}>
+                {createRoomQuery.isLoading && <CreateRoomLoadingContainer><Loader/></CreateRoomLoadingContainer>}
+                {!createRoomQuery.isLoading && t('room.create.start')}
+            </Button>
         </RoomCreatorContainer>
     );
 };
@@ -83,6 +87,11 @@ const RoomCreatorContainer = styled.form`
     }
 
   }
+  
+  button {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
 
   label {
     display: block;
@@ -94,3 +103,7 @@ const RoomCreatorContainer = styled.form`
   width: 100%;
   gap: 0.5rem;
 `;
+
+const CreateRoomLoadingContainer = styled.div`
+  font-size: 0.3rem;
+`
