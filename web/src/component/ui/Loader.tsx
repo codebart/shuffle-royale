@@ -17,7 +17,7 @@ const LoaderContainer = styled.div`
 const LoaderIcon = styled.span`
   filter: grayscale(1);
   font-size: 3em;
-  animation: spin 2s linear infinite;
+  animation: spin 2s ease-in-out infinite;
 
   @keyframes spin {
     25% {

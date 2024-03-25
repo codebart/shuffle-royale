@@ -25,7 +25,7 @@ export const RoomsSort = ({onChange}: {onChange: (form: SortForm) => void}) => {
             <Select {...register('key')} id={'sort'}>
                 {Object.keys(SortKey).map(key => <option key={key} value={key}>{t(`rooms.sort.key.${key}`)}</option>)}
             </Select>
-            <Input onClick={onDirectionClicked} {...register('direction')} type={'button'}/>
+            <Input onClick={onDirectionClicked} type={'button'} value={t(`rooms.sort.direction.${watch('direction')}`)}/>
         </RoomsSortContainer>
     );
 };

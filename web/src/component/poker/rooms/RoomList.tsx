@@ -29,7 +29,7 @@ export const RoomList = ({rooms, loading, error, onRefresh}: { rooms: RoomModel[
                 {(!loading && !error) && (
                     <CreateRoom/>
                 )}
-                <RoomPagination totalElements={1}/>
+                {rooms.length > 0 && <RoomPagination totalElements={rooms.length}/>}
             </RoomUnorderedList>
         </RoomListContainer>
     );

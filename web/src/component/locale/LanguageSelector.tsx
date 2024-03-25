@@ -34,7 +34,7 @@ export const LanguageSelector = () => {
 };
 
 const LanguageSelectorContainer = styled.div`
-  position: absolute;
+  position: fixed;
   left: 4rem;
   top: 1rem;
 

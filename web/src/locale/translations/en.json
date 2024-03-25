@@ -59,6 +59,10 @@
           "TOTAL_STACKS": "Total stacks",
           "BUY_IN": "Buy in",
           "ID": "Id"
+        },
+        "direction": {
+          "ASC": "Ascending",
+          "DESC": "Descending"
         }
       }
     }
