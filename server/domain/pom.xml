@@ -6,12 +6,13 @@
 
     <parent>
         <groupId>com.shuffleroyale</groupId>
-        <artifactId>shuffleroyale</artifactId>
+        <artifactId>parent</artifactId>
         <version>0.0.1</version>
     </parent>
 
     <artifactId>domain</artifactId>
     <packaging>pom</packaging>
+    <description>ShuffleRoyale :: Domain</description>
 
     <modules>
         <module>logic</module>

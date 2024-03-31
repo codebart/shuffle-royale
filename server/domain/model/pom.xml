@@ -11,5 +11,6 @@
     </parent>
 
     <artifactId>domain-model</artifactId>
+    <description>ShuffleRoyale :: Domain :: Model</description>
 
 </project>

@@ -6,12 +6,13 @@
 
     <parent>
         <groupId>com.shuffleroyale</groupId>
-        <artifactId>shuffleroyale</artifactId>
+        <artifactId>parent</artifactId>
         <version>0.0.1</version>
     </parent>
 
     <artifactId>infrastructure</artifactId>
     <packaging>pom</packaging>
+    <description>ShuffleRoyale :: Infrastructure</description>
 
     <modules>
         <module>persistence</module>

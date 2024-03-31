@@ -6,28 +6,43 @@
 
     <parent>
         <groupId>com.shuffleroyale</groupId>
-        <artifactId>shuffleroyale</artifactId>
+        <artifactId>parent</artifactId>
         <version>0.0.1</version>
     </parent>
 
     <artifactId>application</artifactId>
+    <description>ShuffleRoyale :: Application</description>
 
     <dependencies>
         <dependency>
             <groupId>com.shuffleroyale</groupId>
             <artifactId>api</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.shuffleroyale</groupId>
-            <artifactId>domain</artifactId>
-            <version>${version}</version>
+            <artifactId>domain-logic</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.shuffleroyale</groupId>
-            <artifactId>infrastructure</artifactId>
-            <version>${version}</version>
+            <artifactId>infrastructure-persistence</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shuffleroyale</groupId>
+            <artifactId>infrastructure-security</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

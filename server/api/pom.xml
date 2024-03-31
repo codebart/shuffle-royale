@@ -6,17 +6,18 @@
 
     <parent>
         <groupId>com.shuffleroyale</groupId>
-        <artifactId>shuffleroyale</artifactId>
+        <artifactId>parent</artifactId>
         <version>0.0.1</version>
     </parent>
 
     <artifactId>api</artifactId>
+    <description>ShuffleRoyale :: API</description>
 
     <dependencies>
         <dependency>
             <groupId>com.shuffleroyale</groupId>
             <artifactId>domain-model</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

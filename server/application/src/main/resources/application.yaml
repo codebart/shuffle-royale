@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ShuffleRoyale
+  main:
+    banner-mode: off

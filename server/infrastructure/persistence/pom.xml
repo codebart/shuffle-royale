@@ -11,12 +11,13 @@
     </parent>
 
     <artifactId>infrastructure-persistence</artifactId>
+    <description>ShuffleRoyale :: Infrastructure :: Persistence</description>
 
     <dependencies>
         <dependency>
             <groupId>com.shuffleroyale</groupId>
             <artifactId>domain-model</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

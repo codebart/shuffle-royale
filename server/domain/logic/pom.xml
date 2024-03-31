@@ -11,12 +11,13 @@
     </parent>
 
     <artifactId>domain-logic</artifactId>
+    <description>ShuffleRoyale :: Domain :: Logic</description>
 
     <dependencies>
         <dependency>
             <groupId>com.shuffleroyale</groupId>
             <artifactId>domain-model</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
