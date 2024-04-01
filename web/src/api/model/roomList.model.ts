@@ -20,18 +20,24 @@ export enum SortDirection {
 }
 
 export type Sort = {
-    key: SortKey,
-    direction: SortDirection
+    sortKey: SortKey,
+    sortDirection: SortDirection
 }
 
+export type Filter<T> = T | 'any';
+export type ComparisonOperator =  '>' | '<' | '=';
+
 export type RoomsFiltersRequest = {
-    blinds: string | 'any';
-    seats: number | 'any';
-    players: number | 'any';
-    totalStacks: number | 'any';
-    totalStackOperator: '>' | '<';
-    buyIn: number | 'any';
-    buyInOperator: '>' | '<';
+    blinds: Filter<string>;
+    blindsOperator: ComparisonOperator;
+    seats: Filter<number>;
+    seatsOperator: ComparisonOperator;
+    players: Filter<number>;
+    playersOperator: ComparisonOperator;
+    totalStacks: Filter<number>;
+    totalStackOperator: ComparisonOperator;
+    buyIn: Filter<number>;
+    buyInOperator: ComparisonOperator;
     noLimit: boolean;
 }
 

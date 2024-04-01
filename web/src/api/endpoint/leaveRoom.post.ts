@@ -10,6 +10,6 @@ export const useLeaveRoom = (request: LeaveRoomRequest): UseQueryResult<EmptyRes
         queryKey: ['request', request],
         enabled: false,
         retry: false,
-        queryFn: () => post(`${rootUrl}/room/${request.roomId}/leave`, request),
+        queryFn: () => post(`${rootUrl}/room/${request.roomId}/leave`),
     });
 }

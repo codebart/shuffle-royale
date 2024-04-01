@@ -14,6 +14,6 @@ export const get = async <O>(url: string): Promise<O> => {
     return await fetchApi('GET', url);
 }
 
-export const post = async <O, I>(url: string, body: I): Promise<O> => {
+export const post = async <O, I>(url: string, body?: I): Promise<O> => {
     return await fetchApi('POST', url, body);
 }

@@ -10,6 +10,6 @@ export const useTakeSeat = (request: TakeSeatRequest): UseQueryResult<EmptyRespo
         queryKey: ['request', request],
         enabled: false,
         retry: false,
-        queryFn: () => post(`${rootUrl}/room/${request.roomId}/seat/${request.seatIndex}/take`, request),
+        queryFn: () => post(`${rootUrl}/room/${request.roomId}/seat/${request.seatIndex}/take`),
     });
 }

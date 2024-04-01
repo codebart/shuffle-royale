@@ -10,6 +10,6 @@ export const useTakeAction = (request: TakeActionRequest): UseQueryResult<EmptyR
         queryKey: ['request', request],
         enabled: false,
         retry: false,
-        queryFn: () => post(`${rootUrl}/room/${request.roomId}/action/${request.type}${request.value && `?value=${request.value}`}`, request),
+        queryFn: () => post(`${rootUrl}/room/${request.roomId}/action/${request.type}${request.value && `?value=${request.value}`}`),
     });
 }
