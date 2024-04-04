@@ -26,14 +26,16 @@ const UserContainer = styled.div`
   width: 11rem;
   height: 3rem;
   display: flex;
-  border: 3px solid lightgray;
+  border: 3px solid ${({theme}) => theme.color.background.light};
   padding: 0.5rem;
   border-radius: 5px;
   column-gap: 0.5rem;
   justify-content: space-evenly;
-  
+  background-color: ${({theme}) => theme.color.background.normal};
+
   &:hover {
-    background-color: #DDDDDD;
+    border: 3px solid ${({theme}) => theme.color.background.lightest};
+    background-color: ${({theme}) => theme.color.background.light};
     cursor: pointer;
   }
 `;

@@ -1,6 +1,5 @@
 export type CreateRoomRequest = {
-    smallBlind: string;
-    bigBlind: string;
+    blinds: string;
     seats: number;
     buyIn: number;
     noLimit: boolean;

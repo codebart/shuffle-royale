@@ -25,6 +25,10 @@ export const RoomsFilters = ({onChange}: { onChange: (form: RoomsFiltersForm) =>
             <ul>
                 <li>
                     <label>{t('rooms.filters.blinds')}:</label>
+                    <SignSelect {...register('blindsOperator')}>
+                        <option>&gt;</option>
+                        <option>&lt;</option>
+                    </SignSelect>
                     <Select {...register('blinds')}>
                         <option value={'any'}>{t('rooms.filters.any')}</option>
                         {blinds.map(([small, big]: [number, number]) => <option
@@ -33,6 +37,10 @@ export const RoomsFilters = ({onChange}: { onChange: (form: RoomsFiltersForm) =>
                 </li>
                 <li>
                     <label>{t('rooms.filters.seats')}: </label>
+                    <SignSelect {...register('seatsOperator')}>
+                        <option>&gt;</option>
+                        <option>&lt;</option>
+                    </SignSelect>
                     <Select {...register('seats')}>
                         <option value={'any'}>{t('rooms.filters.any')}</option>
                         {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
@@ -40,6 +48,10 @@ export const RoomsFilters = ({onChange}: { onChange: (form: RoomsFiltersForm) =>
                 </li>
                 <li>
                     <label>{t('rooms.filters.players')}:</label>
+                    <SignSelect {...register('playersOperator')}>
+                        <option>&gt;</option>
+                        <option>&lt;</option>
+                    </SignSelect>
                     <Select {...register('players')}>
                         <option value={'any'}>{t('rooms.filters.any')}</option>
                         {new Array(9).fill(1).map((value, index) => <option key={index + 2}>{index + 2}</option>)}
@@ -47,7 +59,7 @@ export const RoomsFilters = ({onChange}: { onChange: (form: RoomsFiltersForm) =>
                 </li>
                 <li>
                     <label>{t('rooms.filters.totalStacks')}:</label>
-                    <SignSelect {...register('totalStackOperator')}>
+                    <SignSelect {...register('totalStacksOperator')}>
                         <option>&gt;</option>
                         <option>&lt;</option>
                     </SignSelect>

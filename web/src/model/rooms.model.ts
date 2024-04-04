@@ -1,20 +1,30 @@
+export const ANY = 'any';
+export type Filter<T> = T | 'any';
+export type ComparisonOperator =  '>' | '<' | '=';
+
 export type RoomsFiltersForm = {
-    blinds: string | 'any';
-    seats: number | 'any';
-    players: number | 'any';
-    totalStacks: number | 'any';
-    totalStackOperator: '>' | '<';
-    buyIn: number | 'any';
-    buyInOperator: '>' | '<';
+    blinds: Filter<string>;
+    blindsOperator: ComparisonOperator;
+    seats: Filter<number>;
+    seatsOperator: ComparisonOperator;
+    players: Filter<number>;
+    playersOperator: ComparisonOperator;
+    totalStacks: Filter<number>;
+    totalStacksOperator: ComparisonOperator;
+    buyIn: Filter<number>;
+    buyInOperator: ComparisonOperator;
     noLimit: boolean;
 }
 
 export const initialRoomsFiltersForm: RoomsFiltersForm = {
-    blinds: '1/2',
+    blinds: 'any',
+    blindsOperator: '>',
     seats: 'any',
+    seatsOperator: '>',
     players: 'any',
+    playersOperator: '>',
     totalStacks: 'any',
-    totalStackOperator: '<',
+    totalStacksOperator: '<',
     buyIn: 'any',
     buyInOperator: '<',
     noLimit: true

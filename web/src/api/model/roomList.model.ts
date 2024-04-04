@@ -24,21 +24,20 @@ export type Sort = {
     sortDirection: SortDirection
 }
 
-export type Filter<T> = T | 'any';
 export type ComparisonOperator =  '>' | '<' | '=';
 
 export type RoomsFiltersRequest = {
-    blinds: Filter<string>;
-    blindsOperator: ComparisonOperator;
-    seats: Filter<number>;
-    seatsOperator: ComparisonOperator;
-    players: Filter<number>;
-    playersOperator: ComparisonOperator;
-    totalStacks: Filter<number>;
-    totalStackOperator: ComparisonOperator;
-    buyIn: Filter<number>;
-    buyInOperator: ComparisonOperator;
-    noLimit: boolean;
+    blinds: string | null;
+    blindsOperator: ComparisonOperator | null;
+    seats: number | null;
+    seatsOperator: ComparisonOperator | null;
+    players: number | null;
+    playersOperator: ComparisonOperator | null;
+    totalStacks: number | null;
+    totalStacksOperator: ComparisonOperator | null;
+    buyIn: number | null;
+    buyInOperator: ComparisonOperator | null;
+    noLimit: boolean | null;
 }
 
 export type RoomListResponse = {

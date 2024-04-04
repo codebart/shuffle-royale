@@ -13,10 +13,12 @@ export const useRoomList = (request: RoomListRequest): UseQueryResult<RoomListRe
             rooms: [],
             page: defaultPage
         },
-        queryFn: () => get(`${rootUrl}/rooms?${queryParams(request.filter)}&${queryParams(request.sort)}`),
+        queryFn: () => get(`${rootUrl}/rooms?${[...queryParams(request.filter), ...queryParams(request.sort)].join('&')}`),
     });
 }
 
-const queryParams = (object: any): string => {
-    return Object.entries(object).map(([key, value]) => `${key}=${value}`).join('&');
+const queryParams = (object: any): string[] => {
+    return Object.entries(object)
+        .filter(([key, value]) => Boolean(value))
+        .map(([key, value]) => `${key}=${value}`);
 }

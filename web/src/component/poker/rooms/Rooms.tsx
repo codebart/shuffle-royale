@@ -5,13 +5,32 @@ import {RoomsFilters} from './RoomFilters';
 import {RoomList} from './RoomList';
 import {useRoomList} from 'api/endpoint/roomList.get';
 import {useForm} from 'react-hook-form';
-import {initialRoomListForm, RoomListForm} from 'model/rooms.model';
+import {ANY, initialRoomListForm, RoomListForm} from 'model/rooms.model';
 
 export const Rooms = () => {
     const {watch, setValue} = useForm<RoomListForm>({
         defaultValues: initialRoomListForm
     })
-    const rooms = useRoomList(watch());
+    const form = watch();
+    const rooms = useRoomList({
+        filter: {
+            blinds: form.filter.blinds === ANY ? null : form.filter.blinds,
+            blindsOperator: form.filter.blindsOperator,
+            seats: form.filter.seats === ANY ? null : form.filter.seats,
+            seatsOperator: form.filter.seatsOperator,
+            players: form.filter.players === ANY ? null : form.filter.players,
+            playersOperator: form.filter.playersOperator,
+            totalStacks: form.filter.totalStacks === ANY ? null : form.filter.totalStacks,
+            totalStacksOperator: form.filter.totalStacksOperator,
+            buyIn: form.filter.buyIn === ANY ? null : form.filter.buyIn,
+            buyInOperator: form.filter.buyInOperator,
+            noLimit: form.filter.noLimit,
+        },
+        sort: {
+            sortKey: form.sort.key,
+            sortDirection: form.sort.direction
+        }
+    });
     return (
         <RoomsContainer>
             <RoomsFilters onChange={form => setValue('filter', form)}/>
