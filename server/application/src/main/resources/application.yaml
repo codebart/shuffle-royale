@@ -3,6 +3,11 @@ spring:
     name: ShuffleRoyale
   main:
     banner-mode: off
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/shuffle_royale
+    username: shuffle_royale
+    password: shuffle_royale
   security:
     cors: http://localhost:3000
 server:

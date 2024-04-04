@@ -1,0 +1,21 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="round" author="bstachowski">
+        <sql>
+            CREATE TABLE round (
+                id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+                start_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                room_id integer NOT NULL,
+                number integer NOT NULL,
+                deck card ARRAY NOT NULL,
+                dealer integer NOT NULL,
+                CHECK (number > 0),
+                CHECK (dealer BETWEEN 0 AND 9),
+                CONSTRAINT room_fk FOREIGN KEY (room_id) REFERENCES room(id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

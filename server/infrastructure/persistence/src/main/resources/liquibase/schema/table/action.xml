@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="action" author="bstachowski">
+        <sql>
+            CREATE TYPE game_action AS ENUM ('fold', 'check', 'bet', 'call', 'raise', 'all_in');
+
+            CREATE TABLE round_action (
+                id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+                action_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                round_id integer NOT NULL,
+                pocket_id integer NOT NULL,
+                index integer NOT NULL,
+                action game_action NOT NULL,
+                value bigint,
+                CHECK (value > 0),
+                CHECK (index > 0),
+                CONSTRAINT round_fk FOREIGN KEY (round_id) REFERENCES round(id),
+                CONSTRAINT pocket_fk FOREIGN KEY (pocket_id) REFERENCES pocket(id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="account" author="bstachowski">
+        <sql>
+            CREATE TABLE account (
+                id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+                creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                email varchar(255),
+                name varchar(32),
+                password bytea,
+                coins bigint NOT NULL DEFAULT 0,
+                ip inet NOT NULL,
+                CHECK (coins > 0)
+                );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

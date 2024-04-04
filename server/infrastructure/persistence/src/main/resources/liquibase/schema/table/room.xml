@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="room" author="bstachowski">
+        <sql>
+            CREATE TABLE room (
+                id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+                creation_timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                creator_id integer,
+                small_blind bigint NOT NULL,
+                big_blind bigint NOT NULL,
+                buy_in bigint NOT NULL,
+                no_limit boolean NOT NULL,
+                CHECK (small_blind > 0),
+                CHECK (big_blind > small_blind),
+                CHECK (buy_in > 0),
+                CONSTRAINT creator_fk FOREIGN KEY (creator_id) REFERENCES account(id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

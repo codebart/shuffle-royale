@@ -1,0 +1,22 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="seat" author="bstachowski">
+        <sql>
+            CREATE TABLE seat (
+                id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+                room_id integer NOT NULL,
+                index integer NOT NULL,
+                stack bigint,
+                account_id integer,
+                taken_timestamp timestamp,
+                CHECK (index BETWEEN 0 AND 9),
+                CHECK (stack > 0),
+                CONSTRAINT account_fk FOREIGN KEY (account_id) REFERENCES account(id),
+                CONSTRAINT room_fk FOREIGN KEY (room_id) REFERENCES room(id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
