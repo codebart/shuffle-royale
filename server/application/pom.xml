@@ -14,6 +14,7 @@
     <description>ShuffleRoyale :: Application</description>
 
     <dependencies>
+        <!-- Module -->
         <dependency>
             <groupId>com.shuffleroyale</groupId>
             <artifactId>api</artifactId>

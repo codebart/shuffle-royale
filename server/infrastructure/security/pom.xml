@@ -14,10 +14,16 @@
     <description>ShuffleRoyale :: Infrastructure :: Security</description>
 
     <dependencies>
+        <!-- Module -->
         <dependency>
             <groupId>com.shuffleroyale</groupId>
             <artifactId>domain-model</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 
