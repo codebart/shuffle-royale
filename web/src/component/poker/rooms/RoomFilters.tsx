@@ -5,14 +5,16 @@ import React from 'react';
 import {blinds} from 'model/room.model';
 import {useTranslation} from 'react-i18next';
 import {
+    ANY,
     initialRoomsFiltersForm,
     RoomsFiltersForm,
 } from 'model/rooms.model';
 import {useForm} from 'react-hook-form';
+import {TriStateCheckbox} from "../../ui/TriStateCheckbox";
 
 export const RoomsFilters = ({onChange}: { onChange: (form: RoomsFiltersForm) => void }) => {
     const {t} = useTranslation();
-    const {register, watch} = useForm<RoomsFiltersForm>({
+    const {register, setValue, watch} = useForm<RoomsFiltersForm>({
         defaultValues: initialRoomsFiltersForm
     });
     React.useEffect(() => {
@@ -74,7 +76,7 @@ export const RoomsFilters = ({onChange}: { onChange: (form: RoomsFiltersForm) =>
                     <ValueInput {...register('buyIn')} type={'text'} defaultValue={t('rooms.filters.any')}/>
                 </li>
                 <li>
-                    <Input {...register('noLimit')} type={'checkbox'}/> {t('rooms.filters.noLimit')}
+                    <TriStateCheckbox onChange={value => setValue('noLimit', value !== null ? value : ANY)}/> {t('rooms.filters.noLimit')}
                 </li>
             </ul>
         </RoomsFiltersContainer>

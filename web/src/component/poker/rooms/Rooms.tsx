@@ -25,7 +25,7 @@ export const Rooms = () => {
             totalStacksOperator: form.filter.totalStacksOperator,
             buyIn: form.filter.buyIn === ANY ? null : form.filter.buyIn,
             buyInOperator: form.filter.buyInOperator,
-            noLimit: form.filter.noLimit,
+            noLimit: form.filter.noLimit === ANY ? null : form.filter.noLimit,
         },
         sort: {
             sortKey: form.sort.key,

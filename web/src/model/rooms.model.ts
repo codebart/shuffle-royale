@@ -13,7 +13,7 @@ export type RoomsFiltersForm = {
     totalStacksOperator: ComparisonOperator;
     buyIn: Filter<number>;
     buyInOperator: ComparisonOperator;
-    noLimit: boolean;
+    noLimit: Filter<boolean>;
 }
 
 export const initialRoomsFiltersForm: RoomsFiltersForm = {
@@ -27,7 +27,7 @@ export const initialRoomsFiltersForm: RoomsFiltersForm = {
     totalStacksOperator: '<',
     buyIn: 'any',
     buyInOperator: '<',
-    noLimit: true
+    noLimit: 'any'
 }
 
 export enum SortKey {

@@ -19,6 +19,6 @@ export const useRoomList = (request: RoomListRequest): UseQueryResult<RoomListRe
 
 const queryParams = (object: any): string[] => {
     return Object.entries(object)
-        .filter(([key, value]) => Boolean(value))
+        .filter(([key, value]) => value !== null && value !== undefined)
         .map(([key, value]) => `${key}=${value}`);
 }
