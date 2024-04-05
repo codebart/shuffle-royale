@@ -36,6 +36,7 @@ export enum SortKey {
     PLAYERS = 'PLAYERS',
     TOTAL_STACKS = 'TOTAL_STACKS',
     BUY_IN = 'BUY_IN',
+    LIMIT = 'LIMIT',
     ID = 'ID'
 }
 
