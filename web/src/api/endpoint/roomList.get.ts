@@ -13,7 +13,7 @@ export const useRoomList = (request: RoomListRequest): UseQueryResult<RoomListRe
             rooms: [],
             page: defaultPage
         },
-        queryFn: () => get(`${rootUrl}/rooms?${[...queryParams(request.filter), ...queryParams(request.sort)].join('&')}`),
+        queryFn: () => get(`${rootUrl}/rooms?${[...queryParams(request.filter), ...queryParams(request.sort), ...queryParams(request.pagination)].join('&')}`),
     });
 }
 

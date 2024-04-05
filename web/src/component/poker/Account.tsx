@@ -2,8 +2,10 @@ import {Avatar} from 'component/shared/Avatar';
 import styled from 'styled-components';
 import {Coins} from 'component/shared/Coins';
 import {useAccountInfo} from 'api/endpoint/accountInfo.get';
+import {useTranslation} from "react-i18next";
 
 export const Account = () => {
+    const {t} = useTranslation();
     const account = useAccountInfo();
     if (!account.isSuccess || !account.data) {
         return null;
@@ -12,7 +14,7 @@ export const Account = () => {
         <UserContainer>
             <Avatar/>
             <div>
-                <Name>{account.data.name}</Name>
+                <Name>{account.data.name ?? t('account.anonymousUsername')}</Name>
                 <Coins coins={account.data.freeCoins} locked={account.data.lockedCoins}/>
             </div>
         </UserContainer>

@@ -1,14 +1,21 @@
 import {RoomModel} from 'model/room.model';
-import {RoomPagination} from './RoomPagination';
 import styled from 'styled-components';
 import {Button} from 'component/ui/Button';
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {CreateRoom} from './create/CreateRoom';
 import {useTranslation} from 'react-i18next';
 import {Loader} from '../../ui/Loader';
 import {RoomView} from './RoomView';
 
-export const RoomList = ({rooms, loading, error, onRefresh}: { rooms: RoomModel[], loading: boolean, error: boolean, onRefresh: () => void}) => {
+export type RoomListProps = {
+    rooms: RoomModel[];
+    loading: boolean;
+    error: boolean;
+    onRefresh: () => void;
+    children: ReactElement
+}
+
+export const RoomList = ({rooms, loading, error, onRefresh, children}: RoomListProps) => {
     const {t} = useTranslation();
     return (
         <RoomListContainer>
@@ -29,7 +36,7 @@ export const RoomList = ({rooms, loading, error, onRefresh}: { rooms: RoomModel[
                 {(!loading && !error) && (
                     <CreateRoom/>
                 )}
-                {rooms.length > 0 && <RoomPagination totalElements={rooms.length}/>}
+                {children}
             </RoomUnorderedList>
         </RoomListContainer>
     );

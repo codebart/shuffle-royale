@@ -3,6 +3,7 @@ import {PageResponse} from './pagination.model';
 export type RoomListRequest = {
     filter: RoomsFiltersRequest;
     sort: Sort;
+    pagination: Pagination;
 }
 
 export enum SortKey {
@@ -22,6 +23,11 @@ export enum SortDirection {
 export type Sort = {
     sortKey: SortKey,
     sortDirection: SortDirection
+}
+
+export type Pagination = {
+    page: number;
+    elements: number;
 }
 
 export type ComparisonOperator =  '>' | '<' | '=';

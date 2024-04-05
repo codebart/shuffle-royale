@@ -1,6 +1,6 @@
 export type AccountInfoResponse = {
     avatar?: string,
-    name: string,
+    name?: string,
     freeCoins: number,
     lockedCoins: number,
 }

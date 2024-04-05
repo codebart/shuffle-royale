@@ -1,5 +1,8 @@
 {
   "translation": {
+    "account": {
+      "anonymousUsername": "Anonymous"
+    },
     "betting": {
       "fold": "Fold",
       "call": "Call",

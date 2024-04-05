@@ -6,6 +6,7 @@ import {RoomList} from './RoomList';
 import {useRoomList} from 'api/endpoint/roomList.get';
 import {useForm} from 'react-hook-form';
 import {ANY, initialRoomListForm, RoomListForm} from 'model/rooms.model';
+import {RoomPagination} from "./RoomPagination";
 
 export const Rooms = () => {
     const {watch, setValue} = useForm<RoomListForm>({
@@ -29,13 +30,19 @@ export const Rooms = () => {
         sort: {
             sortKey: form.sort.key,
             sortDirection: form.sort.direction
+        },
+        pagination: {
+            page: form.pagination.currentPage,
+            elements: form.pagination.rowsPerPage
         }
     });
     return (
         <RoomsContainer>
             <RoomsFilters onChange={form => setValue('filter', form)}/>
             <RoomsSort onChange={form => setValue('sort', form)}/>
-            <RoomList onRefresh={() => rooms.refetch()} error={rooms.isError && !rooms.isFetching} loading={rooms.isFetching} rooms={rooms.data?.rooms || []}/>
+            <RoomList onRefresh={() => rooms.refetch()} error={rooms.isError && !rooms.isFetching} loading={rooms.isFetching} rooms={rooms.data?.rooms || []}>
+                <RoomPagination totalPages={rooms?.data?.page?.totalPages || 0} totalElements={rooms?.data?.page?.totalElements || 0} onChange={form => setValue('pagination', form)}/>
+            </RoomList>
         </RoomsContainer>
     );
 };

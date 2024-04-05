@@ -9,11 +9,17 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: ${({theme}) => theme.color.background.normal};
   letter-spacing: 1px;
-  color: ${({theme}) => theme.color.secondary.normal};
+  color: ${({theme}) => theme.color.secondary.lightest};
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: ${({theme}) => theme.color.background.light};
     border-color: ${({theme}) => theme.color.background.lightest};
     color: ${({theme}) => theme.color.secondary.dark};
+  }
+  
+  &:disabled {
+    background-color: ${({theme}) => theme.color.background.dark};
+    border-color: ${({theme}) => theme.color.background.normal};
+    cursor: not-allowed;
   }
 `;

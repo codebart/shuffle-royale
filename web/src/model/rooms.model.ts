@@ -57,9 +57,21 @@ export const initialSortForm: SortForm = {
 export type RoomListForm = {
     filter: RoomsFiltersForm;
     sort: SortForm;
+    pagination: PaginationForm;
+}
+
+export type PaginationForm = {
+    currentPage: number;
+    rowsPerPage: number;
+}
+
+export const initialPaginationForm: PaginationForm = {
+    currentPage: 0,
+    rowsPerPage: 10
 }
 
 export const initialRoomListForm: RoomListForm = {
     filter: initialRoomsFiltersForm,
-    sort: initialSortForm
+    sort: initialSortForm,
+    pagination: initialPaginationForm
 }

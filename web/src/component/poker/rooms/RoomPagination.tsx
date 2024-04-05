@@ -1,9 +1,10 @@
 import {Select} from 'component/ui/Select';
 import {Button} from 'component/ui/Button';
 import styled from 'styled-components';
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useForm} from 'react-hook-form';
+import {initialPaginationForm, PaginationForm, SortDirection, SortForm} from "../../../model/rooms.model";
 
 const paginationOptions: number[] = [
     10,
@@ -13,23 +14,28 @@ const paginationOptions: number[] = [
     500
 ];
 
-type PaginationForm = {
-    rowsPerPage: number,
-    currentPage: number
+export type RoomPaginationProps = {
+    totalElements: number;
+    totalPages: number;
+    onChange: (form: PaginationForm) => void;
 }
 
-const initialForm: PaginationForm = {
-    rowsPerPage: 10,
-    currentPage: 1
-};
-
-export const RoomPagination = ({totalElements}: {totalElements: number}) => {
+export const RoomPagination = ({totalElements, totalPages, onChange}: RoomPaginationProps) => {
     const {t} = useTranslation();
-    const {register, handleSubmit, watch} = useForm<PaginationForm>({
-        defaultValues: initialForm
+    const {register, setValue, watch} = useForm<PaginationForm>({
+        defaultValues: initialPaginationForm
     });
-    const from = (watch('currentPage') - 1) * watch('rowsPerPage') + 1;
-    const to = Math.min(totalElements, Math.max(from, watch('currentPage') * watch('rowsPerPage')));
+    const currentPage = watch('currentPage');
+    const rowsPerPage = watch('rowsPerPage');
+    const from = currentPage * rowsPerPage + 1;
+    const to = Math.min(totalElements, Math.max(from, (currentPage + 1) * rowsPerPage + 1));
+    const onPageChanged = useCallback((page: number) => () => {
+        setValue('currentPage', page);
+    }, []);
+    React.useEffect(() => {
+        const subscription = watch((value) => onChange(value as PaginationForm))
+        return () => subscription.unsubscribe()
+    }, [watch])
     return (
         <li>
             <RoomPaginationContainer>
@@ -38,8 +44,8 @@ export const RoomPagination = ({totalElements}: {totalElements: number}) => {
                     {paginationOptions.map((value) => <option key={value} value={value}>{value}</option>)}
                 </Select>
                 <span>{from}-{to} {t('rooms.list.pagination.of')} {totalElements} {t('rooms.list.pagination.rooms')}</span>
-                <Button>&lt;</Button>
-                <Button>&gt;</Button>
+                <Button disabled={currentPage === 0} onClick={onPageChanged(currentPage - 1)}>&lt;</Button>
+                <Button disabled={currentPage >= totalPages - 1} onClick={onPageChanged(currentPage + 1)}>&gt;</Button>
             </RoomPaginationContainer>
         </li>
     );
