@@ -9,12 +9,12 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: ${({theme}) => theme.color.background.normal};
   letter-spacing: 1px;
-  color: ${({theme}) => theme.color.secondary.lightest};
+  color: ${({theme}) => theme.color.secondary.dark};
 
   &:not(:disabled):hover {
     background-color: ${({theme}) => theme.color.background.light};
     border-color: ${({theme}) => theme.color.background.lightest};
-    color: ${({theme}) => theme.color.secondary.dark};
+    color: ${({theme}) => theme.color.secondary.lightest};
   }
   
   &:disabled {

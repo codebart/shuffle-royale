@@ -31,7 +31,7 @@ export const RoomPagination = ({totalElements, totalPages, onChange}: RoomPagina
     const to = Math.min(totalElements, Math.max(from, (currentPage + 1) * rowsPerPage + 1));
     const onPageChanged = useCallback((page: number) => () => {
         setValue('currentPage', page);
-    }, []);
+    }, [setValue]);
     React.useEffect(() => {
         const subscription = watch((value) => onChange(value as PaginationForm))
         return () => subscription.unsubscribe()

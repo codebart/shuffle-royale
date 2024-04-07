@@ -5,7 +5,7 @@ import {Avatar} from 'component/shared/Avatar';
 import styled from 'styled-components';
 import {PlayerAction} from '../../../model/betting.model';
 
-export const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, secondCard], player}}: { seat: PlayerSeat }) => (
+export const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCard, secondCard], player, stack}}: { seat: PlayerSeat }) => (
     <PlayerSeatBadgeContainer>
         <CardsContainer>
             {firstCard && <CardComponent size={100} card={firstCard}/>}
@@ -20,7 +20,7 @@ export const PlayerSeatComponent = ({seat: {action, actionValue, cards: [firstCa
         <PlayerSeatContainer>
             <div>
                 <PlayerName>{player.name}</PlayerName>
-                <Coins coins={player.stack}/>
+                <Coins coins={stack}/>
             </div>
             <Avatar url={player.avatar}/>
         </PlayerSeatContainer>

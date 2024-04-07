@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes} from 'react-router-dom';
 import {ErrorPage} from './ErrorPage';
 import {Layout} from 'component/shared/Layout';
 import {Logo} from 'component/shared/Logo';
@@ -10,6 +10,7 @@ import {Room} from 'component/poker/room/Room';
 export const Routing = () => (
     <Routes>
         <Route path={'/'} errorElement={<ErrorPage/>}>
+            <Route path={'/'} element={<RoomsRoute/>}/>
             <Route path={'/rooms'} element={<RoomsRoute/>}/>
             <Route path={'/room/:id'} element={<RoomRoute/>}/>
         </Route>
@@ -26,7 +27,6 @@ const RoomsRoute = () => (
 
 const RoomRoute = () => (
     <Layout>
-        <Account/>
         <Room/>
     </Layout>
 )

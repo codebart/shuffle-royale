@@ -5,11 +5,10 @@ import {CardComponent} from '../card/Card';
 import {SeatComponent} from '../seat/Seat';
 import styled from 'styled-components';
 import {TableState} from '../../../model/table.model';
+import {useState} from "react";
 
-export const Table = () => {
-    const table: TableState = {
-
-    } as TableState;
+export const Table = ({state, roomId}: {state: TableState, roomId: number}) => {
+    const [table, setTable] = useState<TableState>(state);
     const positions = seatPositions[table.seats.length];
     return (
         <TableContainer>
@@ -21,7 +20,7 @@ export const Table = () => {
                 {table.cards.map((card, index) => <CardComponent key={index} size={120} card={card}/>)}
             </SharedCards>
             <SeatsContainer>
-                {table.seats.map((seat, index) => <SeatLocation key={index} position={positions[index]}><SeatComponent roomId={0} index={index} seat={seat}/></SeatLocation>)}
+                {table.seats.map((seat, index) => <SeatLocation key={index} position={positions[index]}><SeatComponent roomId={roomId} index={index} seat={seat}/></SeatLocation>)}
             </SeatsContainer>
         </TableContainer>
     );

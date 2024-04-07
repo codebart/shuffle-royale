@@ -19,7 +19,6 @@ export enum Stage {
 
 export type Player = {
     name: string;
-    stack: number;
     avatar?: string;
 }
 
@@ -32,6 +31,7 @@ export type FreeSeat = {
 export type PlayerSeat = {
     occupied: true;
     player: Player;
+    stack: number;
     cards: [Card, Card];
     action: PlayerAction;
     actionValue: number | null;

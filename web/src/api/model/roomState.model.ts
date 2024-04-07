@@ -15,27 +15,24 @@ export type RoomStateResponse = {
 
 export type RoomSeatResponse = {
     index: number;
+    stack: number;
     player: PlayerResponse;
 }
 
 export type PlayerResponse = {
     name: string;
-    chips: number;
     avatar?: string;
 }
 
 export type RoundStateResponse = {
     pots: number[];
     seats: RoundSeatStateResponse[];
-    currentAction: number;
 }
 
 export type RoundSeatStateResponse = {
     index: number;
     playing: boolean;
     cards: boolean;
-    action: PlayerAction;
-    value?: number;
 }
 
 export enum PlayerAction {
