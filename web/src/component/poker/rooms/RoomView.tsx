@@ -2,16 +2,17 @@ import {RoomModel} from '../../../model/room.model';
 import {Button} from '../../ui/Button';
 import styled from 'styled-components';
 import React, {useCallback} from 'react';
+import {abbreviated} from "../../../model/chip.model";
 
 export const RoomView = ({room}: { room: RoomModel }) => {
     const onJoin = useCallback(() => window.open(`/room/${room.id}`, "_blank", "popup"), []);
     return (
         <RoomViewContainer>
             <RoomId>#{room.id}</RoomId>
-            <div><b>Blinds:</b> {room.smallBlind}/{room.bigBlind}</div>
+            <div><b>Blinds:</b> {abbreviated(room.smallBlind)}/{abbreviated(room.bigBlind)}</div>
             <div><b>Seats:</b> {room.seatCount - room.freeSeats}/{room.seatCount}</div>
-            <div><b>Buy in:</b> {room.buyIn}</div>
-            <div><b>Total stacks:</b> {room.totalStacks}</div>
+            <div><b>Buy in:</b> {abbreviated(room.buyIn)}</div>
+            <div><b>Total stacks:</b> {abbreviated(room.totalStacks)}</div>
             <div><b>{room.noLimit ? 'No' : 'Pot'} limit</b></div>
             <Button onClick={onJoin}>Join</Button>
         </RoomViewContainer>

@@ -25,7 +25,7 @@
         "start": "Start",
         "blinds": "Blinds",
         "seats": "Seats",
-        "buyIn": "Buy in (big blinds)",
+        "buyIn": "Buy in",
         "noLimit": "No Limit"
       },
       "seat": {
