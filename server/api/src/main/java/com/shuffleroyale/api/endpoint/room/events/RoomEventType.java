@@ -1,6 +1,6 @@
 package com.shuffleroyale.api.endpoint.room.events;
 
-enum GameEventType {
+public enum RoomEventType {
     PLAYER_TOOK_SEAT,
     PLAYER_TOOK_ACTION,
     PLAYER_SHOWED_CARDS,
